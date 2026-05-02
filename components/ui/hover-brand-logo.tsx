@@ -27,7 +27,7 @@ const DEFAULT_BRANDS: Brand[] = [
 ];
 
 export function HoverBrandLogo({
-  heading = "Used by professionals at",
+  heading = "Built for people at",
   brands = DEFAULT_BRANDS,
   className,
 }: {

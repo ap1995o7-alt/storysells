@@ -9,36 +9,36 @@ import {
 
 const FAQS = [
   {
-    q: "What format is the workbook in?",
-    a: "It's a fillable PDF. You can type directly into every field on any laptop, tablet, or phone using a free PDF reader (Adobe Acrobat, Preview on Mac, or any browser). 191 pages, optimized to load fast even on patchy connections.",
+    q: "What format is the workbook?",
+    a: "Fillable PDF. You type directly into the fields. Works on any laptop, iPad, or phone with a PDF reader. No special software.",
   },
   {
     q: "How is it delivered?",
-    a: "Instantly. Once you complete payment, you'll be redirected to a download page and a link will hit your inbox within seconds. No 'we'll get back to you' — it's automated.",
+    a: "Instantly. You pay, you land on a download page, you get the file. Also emailed to you as backup.",
   },
   {
     q: "What's the refund policy?",
-    a: "All sales are final. Story Sells is a digital product, so once it's accessible to you, it's non-refundable. Limited exceptions apply for duplicate payments, verified delivery failures on our side, or where required by applicable law. To raise an exception, email storythatsellsforyou@gmail.com with your Razorpay payment ID. Full policy at /refund.",
+    a: "7 days. No questions. WhatsApp me and I'll refund to your UPI within 48 hours. Full policy at /refund.",
   },
   {
     q: "Is the payment secure?",
-    a: "Yes. Payments are processed through Razorpay — the same platform powering Swiggy, Cred, and most Indian D2C brands. We never see or store your card or UPI details.",
+    a: "Razorpay handles everything. PCI-DSS compliant. UPI, cards, net banking — whatever you use.",
   },
   {
-    q: "I'm not a 'marketer' — will this still help me?",
-    a: "Yes, if your job involves explaining things to other humans. PMs, founders, consultants, designers, salespeople, and anyone who writes for work have all used it. The frameworks are content-agnostic — they work whether you're pitching a product, a feature, or a raise.",
+    q: "I'm not in marketing. Will this help?",
+    a: "If you pitch, present, write, or need to make people care about what you're saying — yes. PMs, salespeople, founders, consultants, freelancers, writers — the frameworks work in any context where you need someone to listen.",
   },
   {
     q: "Is this a course?",
-    a: "No. There are no live calls, no community Slack, no schedule. It's a self-serve workbook you fill in at your own pace. The bonus video walkthrough explains the system, but the workbook itself is the product.",
+    a: "No. No videos, no calls, no schedule. It's a workbook. You open it, pick a framework, fill it in. One framework takes 15 minutes.",
   },
   {
-    q: "Are there any GST or hidden charges?",
-    a: "No. ₹499 is the final price. GST is included. No subscription, no auto-renew, no upsell wall.",
+    q: "Are there GST or hidden charges?",
+    a: "₹499 is the final price. No hidden charges. If you need a GST invoice for your company, email me with your GSTIN after purchase.",
   },
   {
     q: "I'm a complete beginner. Will I be lost?",
-    a: "No. Each framework starts with a one-line definition, a worked example, and then asks you to apply it to your own work. Start with Section 1 and the system unfolds page by page.",
+    a: "No. Start with Section 1, frameworks 01 through 14. They're designed to build on each other. By framework 14, you'll understand your audience better than most people who've been writing for years.",
   },
 ];
 

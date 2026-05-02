@@ -24,7 +24,7 @@ type BuyButtonProps = {
 };
 
 export function BuyButton({
-  children = "Get Access — ₹499",
+  children = "Get the Workbook — ₹499",
   variant = "primary",
   className,
   onClick,

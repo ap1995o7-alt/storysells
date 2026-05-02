@@ -1,29 +1,27 @@
-import Image from "next/image";
-
 const COLUMNS = [
   {
     label: "Source",
     title: "30 Books",
-    body: "Distilled from the storytelling canon — McKee, Aristotle, Joseph Campbell, Donald Miller, Annette Simmons, Nancy Duarte, and 24 more. Years of reading, compressed.",
+    body:
+      "I read McKee, Aristotle, Campbell, Duarte, Kindra Hall, Will Storr, Matthew Dicks, and 23 more. 18 months. Roughly 8,000 pages. I took notes on everything that actually worked — not in a classroom, but in a pitch, a LinkedIn post, a Slack message, a sales call.",
   },
   {
     label: "Method",
     title: "76 Frameworks",
-    body: "Tactical models you can deploy in any context — SCQA, the Curiosity Gap, Three Levels of Conflict, the One-Line Pitch, the Ladder of Abstraction, and 71 more.",
+    body:
+      "Each framework is a deployable tool. The Curiosity Gap. The SCQA. Three Levels of Conflict. The One-Line Pitch. The Ladder of Abstraction. You don't study them. You fill them in for YOUR audience, YOUR product, YOUR next presentation. 15 minutes per framework.",
   },
   {
     label: "Output",
     title: "Usable Outputs",
-    body: "Every worksheet ends with a YOUR OUTPUT section — a real deliverable. Not theory. Not journaling. Content you can paste into your next deck, post, or pitch.",
+    body:
+      "Every worksheet ends with a red-bordered box called YOUR OUTPUT. That box is the whole point. It's a hook, a headline, a pitch paragraph, or a story you can paste directly into your deck, your post, or your email. Not theory. Not journaling. A deliverable.",
   },
 ] as const;
 
 export function Mechanism() {
   return (
-    <section
-      id="mechanism"
-      className="border-t border-line"
-    >
+    <section id="mechanism" className="border-t border-line">
       <div className="mx-auto w-full max-w-[1440px] px-5 py-24 md:px-12 md:py-32">
         <p className="label-caps mb-12 text-ink-muted">The Mechanism</p>
 
@@ -35,16 +33,6 @@ export function Mechanism() {
               <p className="body-md mt-5 text-ink-tint">{c.body}</p>
             </div>
           ))}
-        </div>
-
-        <div className="relative mt-16 aspect-[16/9] w-full border border-line bg-surface-low md:mt-20">
-          <Image
-            src="/hf_20260501_142100_07c16c07-1fe7-4df3-ae18-fc71bcafd679.png"
-            alt="Story Sells workbook open on a laptop showing the framework interface"
-            fill
-            sizes="(max-width: 1440px) 100vw, 1440px"
-            className="editorial-image object-cover"
-          />
         </div>
       </div>
     </section>

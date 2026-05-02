@@ -81,16 +81,27 @@ export function MotionFooter() {
             </a>
           </div>
 
-          <p className="label-caps mt-12 text-ink-muted">
-            Support &nbsp;
-            <a
-              href="mailto:storythatsellsforyou@gmail.com"
-              className="text-ink-tint normal-case tracking-normal hover:text-ink"
-              style={{ textTransform: "none", letterSpacing: 0 }}
-            >
-              storythatsellsforyou@gmail.com
-            </a>
-          </p>
+          <div className="mt-12 flex flex-col gap-3">
+            <p className="label-caps text-ink-muted">
+              Email &nbsp;
+              <a
+                href="mailto:storythatsellsforyou@gmail.com"
+                className="text-ink-tint normal-case tracking-normal hover:text-ink"
+                style={{ textTransform: "none", letterSpacing: 0 }}
+              >
+                storythatsellsforyou@gmail.com
+              </a>
+            </p>
+            <p className="label-caps text-ink-muted">
+              WhatsApp &nbsp;
+              <span
+                className="text-ink-tint normal-case tracking-normal"
+                style={{ textTransform: "none", letterSpacing: 0 }}
+              >
+                +91 XXXXX XXXXX
+              </span>
+            </p>
+          </div>
         </div>
 
         <div className="mt-20 flex flex-col items-start justify-between gap-6 border-t border-line pt-8 md:flex-row md:items-center">

@@ -16,6 +16,7 @@ export function ReceiptId() {
       params.get("razorpay_payment_id") ??
       params.get("razorpay_payment_link_id") ??
       params.get("razorpay_payment_link_reference_id");
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional: reads browser-only URL state on hydration to keep page static
     if (id) setPaymentId(id);
   }, []);
 

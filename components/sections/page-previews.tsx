@@ -3,37 +3,31 @@ import Image from "next/image";
 const PREVIEWS = [
   {
     src: "/preview_3_levels_conflict.jpg",
-    alt: "Three Levels of Conflict framework worksheet preview",
-    label: "Framework 14 / 76",
-    title: "Three Levels of Conflict",
+    alt: "The 3 Levels of Conflict framework worksheet",
+    label: "Framework 12 / 76",
+    title: "The 3 Levels of Conflict",
   },
   {
     src: "/preview_where_you_are.jpg",
-    alt: "Where You Are framework worksheet preview",
-    label: "Framework 27 / 76",
+    alt: "Where You Are framework worksheet",
+    label: "Framework 01 / 76",
     title: "Where You Are",
   },
   {
     src: "/preview_where_you_are (1).jpg",
-    alt: "Where You Are extended worksheet preview",
-    label: "Framework 28 / 76",
-    title: "Where You Are — Pt. II",
+    alt: "The Sacred Flaw worksheet",
+    label: "Worksheet 02 / 76",
+    title: "The Sacred Flaw",
   },
 ] as const;
 
 export function PagePreviews() {
   return (
-    <section
-      id="previews"
-      className="border-t border-line"
-    >
+    <section id="previews" className="border-t border-line">
       <div className="mx-auto w-full max-w-[1440px] px-5 py-24 md:px-12 md:py-32">
         <p className="label-caps mb-10 text-ink-muted">Inside the Workbook</p>
 
-        {/* Mobile: horizontal scroll. Desktop: 3-column grid. */}
-        <div
-          className="scrollbar-none -mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 md:mx-0 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0"
-        >
+        <div className="scrollbar-none -mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 md:mx-0 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0">
           {PREVIEWS.map((p) => (
             <figure
               key={p.src}
@@ -57,9 +51,11 @@ export function PagePreviews() {
         </div>
 
         <p className="body-md mt-10 max-w-[720px] text-ink-tint">
-          Every worksheet ends with a YOUR OUTPUT section — a specific
-          deliverable. Not theory. Not exercises. Content you can copy-paste
-          into your next deck, post, or pitch.
+          Every worksheet ends with a YOUR OUTPUT box. It&apos;s not a
+          reflection prompt. It&apos;s a fill-in-the-blank that produces a
+          usable hook, headline, pitch paragraph, or story structure. You
+          walk away with something you can paste into a deck, not something
+          you paste into a journal.
         </p>
       </div>
     </section>

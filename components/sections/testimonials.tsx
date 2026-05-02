@@ -1,47 +1,46 @@
-const TESTIMONIALS = [
+const INSIGHTS = [
   {
     quote:
-      "Used the SCQA framework in my Q3 review. My skip-level said it was the clearest update she'd seen. Got promoted two months later.",
-    name: "Priya M.",
-    meta: "Product Manager · Flipkart",
+      "One level of conflict gets attention. Two creates tension. Three makes your story feel important. Map all three, even if you only use one at a time.",
+    framework: "Framework 12 / The 3 Levels of Conflict",
+    source: "from Robert McKee's Story",
   },
   {
     quote:
-      "LinkedIn went from 200 impressions to 12K on a single post using the Curiosity Gap framework. Same insight — different packaging.",
-    name: "Rahul S.",
-    meta: "Growth Marketer · Cred",
+      "Your stories don't sound like stories to you — they sound like life. That's exactly why most people think they don't have any.",
+    framework: "Framework 01 / Where You Are",
+    source: "from Kindra Hall's Stories That Stick",
   },
   {
     quote:
-      "Close rate went from 2/10 to 4/10 after Story Sells. The One-Line Pitch framework alone was worth 10x.",
-    name: "Ananya K.",
-    meta: "Sales Lead · Razorpay",
+      "The gap between “smart person with great ideas” and “the person everyone listens to” isn't intelligence, experience, or luck. It's one skill: storytelling.",
+    framework: "Page 4 / Where You Are",
+    source: "Story Sells",
   },
 ] as const;
 
 export function Testimonials() {
   return (
     <section
-      aria-label="Testimonials"
+      aria-label="From the workbook"
       className="border-t border-line"
     >
       <div className="mx-auto w-full max-w-[1440px] px-5 py-24 md:px-12 md:py-32">
-        <p className="label-caps mb-12 text-ink-muted">Field reports</p>
+        <p className="label-caps mb-12 text-ink-muted">From the workbook</p>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-6">
-          {TESTIMONIALS.map((t) => (
+          {INSIGHTS.map((t) => (
             <figure
-              key={t.name}
+              key={t.framework}
               className="flex h-full flex-col justify-between border border-line bg-surface p-6 md:p-8"
+              style={{ borderLeft: "2px solid var(--accent-red)" }}
             >
-              <blockquote className="body-md italic text-ink">
+              <blockquote className="body-md text-ink">
                 &ldquo;{t.quote}&rdquo;
               </blockquote>
               <figcaption className="mt-8 border-t border-line pt-5">
-                <p className="font-[family-name:var(--font-inter)] text-base font-semibold text-ink">
-                  {t.name}
-                </p>
-                <p className="label-caps mt-1 text-ink-muted">{t.meta}</p>
+                <p className="label-caps text-ink">{t.framework}</p>
+                <p className="body-md mt-2 text-ink-tint">{t.source}</p>
               </figcaption>
             </figure>
           ))}

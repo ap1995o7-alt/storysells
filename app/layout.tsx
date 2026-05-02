@@ -24,7 +24,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://storysells.in"),
+  metadataBase: new URL("https://thatstorysells.in"),
   title: "Story Sells — 76 Storytelling Frameworks from 30 Books | ₹499",
   description:
     "A fillable PDF workbook with 76 storytelling frameworks distilled from 30 books. Built for marketers, PMs, salespeople who want to get heard. ₹499.",

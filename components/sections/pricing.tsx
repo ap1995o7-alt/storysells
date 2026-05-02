@@ -1,11 +1,17 @@
 import { Check } from "lucide-react";
 import { BuyButton } from "@/components/site/buy-button";
 
-const BONUSES = [
-  { item: "76 Fillable Frameworks (191 pages)", value: null },
+const INCLUDED = [
+  "76 fillable frameworks across 191 pages",
+  "Every framework sourced and attributed to the original book",
+  "YOUR OUTPUT section on every worksheet — walk away with a usable deliverable",
+  "Works on laptop, iPad, and phone",
+  "Lifetime updates as new frameworks are added",
+];
+
+const BONUSES: { item: string; value: string | null }[] = [
   { item: "15 LinkedIn Hook Templates (Notion file)", value: "₹499" },
   { item: "“Pitch in 7 Minutes” Video Walkthrough", value: "₹999" },
-  { item: "Lifetime updates", value: null },
 ];
 
 const PAYMENT_METHODS = ["UPI", "GPay", "PhonePe", "Paytm", "Visa", "MC"];
@@ -28,11 +34,11 @@ export function Pricing() {
             className="mt-10 border-l-2 pl-5 body-lg text-ink"
             style={{ borderColor: "var(--accent-red)" }}
           >
-            76 frameworks. One workbook. A new way to make people feel what
-            you mean.
+            76 frameworks. One workbook. Built for the person who has the
+            best idea in the room and keeps losing to the person who tells
+            it better.
           </blockquote>
 
-          {/* Pricing card */}
           <div className="mt-12 border border-line bg-surface-low p-6 md:p-10">
             <div className="flex items-baseline gap-4">
               <span className="font-[family-name:var(--font-inter)] text-base text-ink-muted line-through">
@@ -41,14 +47,27 @@ export function Pricing() {
               <span className="display-xl text-ink leading-none">₹499</span>
             </div>
             <p className="label-caps mt-4 text-ink-muted">
-              Founding member price
-              <span aria-hidden="true" className="brand-slash mx-2">
-                /
-              </span>
-              First 500 buyers
+              Founding price
+              <span aria-hidden="true" className="brand-slash mx-2">/</span>
+              While this version is live
             </p>
 
-            <ul className="mt-10 space-y-4 border-t border-line pt-8">
+            <p className="label-caps mt-10 text-ink-muted">What&apos;s included</p>
+            <ul className="mt-5 space-y-4 border-t border-line pt-5">
+              {INCLUDED.map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  <Check
+                    className="mt-[5px] h-4 w-4 shrink-0 text-ink"
+                    strokeWidth={2.25}
+                    aria-hidden="true"
+                  />
+                  <span className="body-md text-ink">{item}</span>
+                </li>
+              ))}
+            </ul>
+
+            <p className="label-caps mt-10 text-ink-muted">Bonuses</p>
+            <ul className="mt-5 space-y-4 border-t border-line pt-5">
               {BONUSES.map((b) => (
                 <li
                   key={b.item}
@@ -72,9 +91,13 @@ export function Pricing() {
             </ul>
 
             <div className="mt-10 border-t border-line pt-8">
-              <BuyButton className="w-full">Get Access Now</BuyButton>
+              <BuyButton className="w-full">Get the Workbook — ₹499</BuyButton>
               <p className="label-caps mt-5 text-center text-ink-muted">
-                Instant digital delivery
+                Instant download
+                <span aria-hidden="true" className="brand-slash mx-2">/</span>
+                Razorpay Secure
+                <span aria-hidden="true" className="brand-slash mx-2">/</span>
+                UPI, Cards, Net Banking
               </p>
 
               <ul

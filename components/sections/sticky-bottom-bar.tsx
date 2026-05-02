@@ -76,7 +76,7 @@ export function StickyBottomBar() {
           tabIndex={visible ? 0 : -1}
           className="inline-flex h-10 items-center gap-2 bg-accent px-4 font-[family-name:var(--font-space-grotesk)] text-[11px] font-semibold uppercase tracking-[0.1em] text-white hover:bg-[#d12b21]"
         >
-          Get Access <ArrowRight className="h-4 w-4" />
+          Get the Workbook <ArrowRight className="h-4 w-4" />
         </button>
       </div>
     </div>

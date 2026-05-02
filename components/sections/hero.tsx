@@ -16,13 +16,26 @@ export function Hero() {
             <h1 className="display-xl text-ink">
               You explain.<br />
               They convince.<br />
-              <span className="text-ink-tint">One workbook closes the gap.</span>
+              <span className="text-ink-tint">
+                Same idea. Different outcome.
+              </span>
             </h1>
 
+            <p className="body-lg mt-10 max-w-[640px] text-ink-tint">
+              This is a 191-page workbook with 76 storytelling frameworks
+              from 30 books. You fill it in for your pitch, your post, your
+              deck. You walk out with something you can use today. Not next
+              quarter. Today.
+            </p>
+
             <div className="mt-12 flex flex-col items-start gap-5 md:flex-row md:items-center md:gap-6">
-              <BuyButton>Get Access — ₹499</BuyButton>
+              <BuyButton>Get the Workbook — ₹499</BuyButton>
               <p className="body-md text-ink-tint">
-                Available instantly in digital format.
+                Instant download
+                <span aria-hidden="true" className="brand-slash mx-2">/</span>
+                Fillable PDF
+                <span aria-hidden="true" className="brand-slash mx-2">/</span>
+                Works on laptop, iPad, phone
               </p>
             </div>
           </div>

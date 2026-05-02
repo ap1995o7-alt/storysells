@@ -7,9 +7,9 @@ import { ProductPreviews } from "@/components/sections/product-previews";
 import { HoverBrandLogo } from "@/components/ui/hover-brand-logo";
 import { PagePreviews } from "@/components/sections/page-previews";
 import { WhoItsFor } from "@/components/sections/who-its-for";
-import { Founder } from "@/components/sections/founder";
 import { Testimonials } from "@/components/sections/testimonials";
 import { Pricing } from "@/components/sections/pricing";
+import { Guarantee } from "@/components/sections/guarantee";
 import { FAQ } from "@/components/sections/faq";
 import { MotionFooter } from "@/components/ui/motion-footer";
 import { StickyBottomBar } from "@/components/sections/sticky-bottom-bar";
@@ -28,9 +28,9 @@ export default function Home() {
         <HoverBrandLogo />
         <PagePreviews />
         <WhoItsFor />
-        <Founder />
         <Testimonials />
         <Pricing />
+        <Guarantee />
         <FAQ />
       </main>
 

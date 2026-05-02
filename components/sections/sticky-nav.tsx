@@ -59,7 +59,7 @@ export function StickyNav() {
 
         <div className="flex items-center gap-2">
           <div className="hidden md:block">
-            <BuyButton variant="compact">Get Access — ₹499</BuyButton>
+            <BuyButton variant="compact">Get the Workbook — ₹499</BuyButton>
           </div>
 
           <button
@@ -94,7 +94,7 @@ export function StickyNav() {
                 className="w-full"
                 onClick={() => setOpen(false)}
               >
-                Get Access — ₹499
+                Get the Workbook — ₹499
               </BuyButton>
             </li>
           </ul>
