@@ -19,10 +19,18 @@ export function handleBuy() {
 
 export const handleCheckout = handleBuy;
 
-/** Smooth-scroll to a section by id (used by header / floating CTA) */
+/**
+ * Smooth-scroll to #pricing on the homepage.
+ * If we're on a different route (e.g. /privacy), navigate to /#pricing.
+ */
 export function scrollToPricing() {
   if (typeof window === "undefined") return;
-  document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth" });
+  const el = document.getElementById("pricing");
+  if (el) {
+    el.scrollIntoView({ behavior: "smooth" });
+  } else {
+    window.location.href = "/#pricing";
+  }
 }
 
 type BuyButtonProps = {

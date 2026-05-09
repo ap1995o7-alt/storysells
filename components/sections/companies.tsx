@@ -1,36 +1,31 @@
 import { LogoCloud3 } from "@/components/ui/logo-cloud-3";
+import {
+  MicrosoftMark,
+  AmazonMark,
+  GoogleMark,
+  NikeMark,
+  IbmMark,
+  NotionMark,
+} from "@/components/ui/brand-svgs";
 
 /**
  * Section 4 — Companies hiring storytellers.
  *
- * Logos sourced from simpleicons.org's CDN, requesting each glyph in
- * white (FFFFFF). Pure SVG, single-color, no licensing risk for
- * editorial / informational use.
- *
- * Rendered with a plain <img> tag (not next/image) so the SVG is
- * served directly without optimization round-trips.
+ * Uses inline SVG brand marks (defined in components/ui/brand-svgs.tsx).
+ * No external CDN, no broken-image risk, no licensing exposure.
  */
-const LOGOS: { src: string; alt: string }[] = [
-  { src: "https://cdn.simpleicons.org/microsoft/FFFFFF", alt: "Microsoft" },
-  { src: "https://cdn.simpleicons.org/amazon/FFFFFF", alt: "Amazon" },
-  { src: "https://cdn.simpleicons.org/google/FFFFFF", alt: "Google" },
-  { src: "https://cdn.simpleicons.org/nike/FFFFFF", alt: "Nike" },
-  { src: "https://cdn.simpleicons.org/ibm/FFFFFF", alt: "IBM" },
-  { src: "https://cdn.simpleicons.org/notion/FFFFFF", alt: "Notion" },
-];
-
 export function Companies() {
-  const logos = LOGOS.map((logo) => (
-    /* eslint-disable-next-line @next/next/no-img-element */
-    <img
-      key={logo.src}
-      src={logo.src}
-      alt={logo.alt}
-      className="h-6 w-auto opacity-90 transition-opacity hover:opacity-100 md:h-8"
-      loading="lazy"
-      decoding="async"
-    />
-  ));
+  const className = "text-foreground/85 transition-colors hover:text-foreground";
+  const height = 28;
+
+  const logos = [
+    <MicrosoftMark key="microsoft" height={height} className={className} />,
+    <AmazonMark key="amazon" height={height} className={className} />,
+    <GoogleMark key="google" height={height} className={className} />,
+    <NikeMark key="nike" height={height} className={className} />,
+    <IbmMark key="ibm" height={height} className={className} />,
+    <NotionMark key="notion" height={height} className={className} />,
+  ];
 
   return (
     <section
