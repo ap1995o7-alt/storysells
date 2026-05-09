@@ -65,12 +65,21 @@ export default function PrivacyPage() {
         <ul>
           <li>
             Standard server logs (IP address, browser type, pages visited,
-            timestamps) for security and analytics
+            timestamps) for security and basic analytics
           </li>
           <li>
-            Anonymous traffic analytics via our hosting platform — no
-            third-party advertising trackers, no Facebook Pixel, no
-            Google Ads conversion tracking
+            <strong>Google Analytics 4 (GA4)</strong> — measures aggregate
+            traffic, page views, and basic device/region information. GA4
+            sets first-party cookies (typically <em>_ga</em> and{" "}
+            <em>_ga_*</em>) and assigns each browser an anonymous client
+            ID. We do not use GA4&apos;s advertising features (no Google
+            Ads remarketing, no Audiences sync). IP addresses are
+            truncated by Google before storage.
+          </li>
+          <li>
+            We do <strong>not</strong> use Facebook Pixel, TikTok Pixel,
+            LinkedIn Insight Tag, or any other advertising / retargeting
+            trackers.
           </li>
         </ul>
 
@@ -109,7 +118,7 @@ export default function PrivacyPage() {
         </ul>
 
         <h2>5. Who we share it with</h2>
-        <p>Three parties, only when necessary:</p>
+        <p>Four parties, only when necessary:</p>
         <ul>
           <li>
             <strong>Razorpay</strong> — payment processing. Their privacy
@@ -123,6 +132,18 @@ export default function PrivacyPage() {
             </a>
           </li>
           <li>
+            <strong>Google (via GA4)</strong> — anonymous traffic
+            analytics only. Google&apos;s privacy policy applies to that
+            data:{" "}
+            <a
+              href="https://policies.google.com/privacy"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              policies.google.com/privacy
+            </a>
+          </li>
+          <li>
             <strong>Our email service provider</strong> — to send you the
             workbook download link
           </li>
@@ -131,9 +152,10 @@ export default function PrivacyPage() {
           </li>
         </ul>
         <p>
-          We do not sell your data. We do not share it with advertisers.
-          We do not use it to train AI models. We do not transfer it to
-          third-party marketing tools.
+          We do not sell your data. We do not run advertising on this
+          site. We do not use your data to train AI models. We do not
+          enable Google&apos;s advertising features within GA4
+          (remarketing, Audiences, or Google Ads linking).
         </p>
 
         <h2>6. Your rights</h2>
@@ -158,13 +180,19 @@ export default function PrivacyPage() {
         </p>
 
         <h2>7. Cookies</h2>
-        <p>This site uses minimal cookies:</p>
+        <p>This site sets a small number of cookies:</p>
         <ul>
           <li>
             A session cookie to remember your purchase progress at
             checkout (deleted when you close the browser)
           </li>
-          <li>An anonymous analytics cookie (no personal identifiers)</li>
+          <li>
+            <strong>Google Analytics first-party cookies</strong> (
+            <em>_ga</em>, <em>_ga_TJ53W8VQ2P</em>) — assign your browser
+            an anonymous client ID so we can count unique visits and
+            measure aggregate behavior. These cookies expire after about
+            two years.
+          </li>
         </ul>
         <p>
           We do not use advertising cookies, retargeting pixels, or
