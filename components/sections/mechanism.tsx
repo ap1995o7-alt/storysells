@@ -34,7 +34,7 @@ export function Mechanism() {
             letterSpacing: "-0.02em",
           }}
         >
-          <ShimmerText duration={2.5} delay={1.0} as="span">
+          <ShimmerText duration={2.5} delay={1.0}>
             This isn&apos;t talent. It&apos;s a system.
           </ShimmerText>
         </h2>

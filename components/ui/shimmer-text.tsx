@@ -1,90 +1,62 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import type { ReactNode, CSSProperties } from "react";
 import { cn } from "@/lib/utils";
 
 type ShimmerTextProps = {
   children: ReactNode;
-  /** Animation duration in seconds */
+  className?: string;
   duration?: number;
-  /** Delay before first run (s) once visible */
   delay?: number;
   /** Pause between repeats (s) */
   repeatDelay?: number;
-  /** Visual variant */
-  variant?: "default";
-  /** Override the highlight color (CSS color string). Defaults to brand red. */
-  highlightColor?: string;
-  /** Override the base text color. Defaults to white. */
-  baseColor?: string;
-  className?: string;
-  /** When false, plays on mount instead of waiting for in-view */
-  inView?: boolean;
-  /** Wrapping element */
-  as?: "span" | "div" | "h1" | "h2";
+  /** Override the wrapping element. Defaults to span. */
+  as?: "span" | "div";
 };
 
 /**
- * Animated gradient shimmer that sweeps across the text.
+ * Animated shimmer that sweeps a brand-red band through white text.
  *
- * Default: white text with a brand-red highlight that sweeps L→R.
- * Pure framer-motion + CSS gradient — no extra deps.
+ * Gradient: white → red → red → white over 200% width, sliding from
+ * positionX 200% to -100% so the red band passes once per cycle.
  */
 export function ShimmerText({
   children,
-  duration = 2.5,
-  delay = 0,
-  repeatDelay = 1.5,
   className,
-  inView = true,
-  highlightColor = "rgba(226, 75, 74, 0.95)",
-  baseColor = "#FFFFFF",
-  as = "span",
+  duration = 2.5,
+  delay = 1.0,
+  repeatDelay = 3,
 }: ShimmerTextProps) {
-  const ref = useRef<HTMLElement>(null);
-  const visible = useInView(ref, { once: false, amount: 0.4 });
-  const shouldRun = inView ? visible : true;
-
-  const Component = motion[as] as typeof motion.span;
-
-  // Most of the gradient is the base color; a narrow highlight band
-  // moves through. The 250% backgroundSize lets the band sweep fully
-  // off-screen, giving a clean repeat.
-  const gradient = `linear-gradient(110deg, ${baseColor} 0%, ${baseColor} 40%, ${highlightColor} 50%, ${baseColor} 60%, ${baseColor} 100%)`;
-
   const style: CSSProperties = {
-    backgroundImage: gradient,
-    backgroundSize: "250% 100%",
+    WebkitTextFillColor: "transparent",
+    background:
+      "linear-gradient(to right, #FFFFFF 0%, rgba(226,75,74,0.85) 40%, rgba(226,75,74,0.85) 60%, #FFFFFF 100%)",
     WebkitBackgroundClip: "text",
     backgroundClip: "text",
-    WebkitTextFillColor: "transparent",
-    color: "transparent",
-    /* prevent layout shift / weird ascender clipping */
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "200% 100%",
+    /* Avoid descender clipping when the background-clip is on text */
     paddingBottom: "0.06em",
   };
 
   return (
-    <Component
-      ref={ref as never}
-      className={cn("shimmer-text-anim inline-block", className)}
+    <motion.span
+      className={cn("inline-block shimmer-text-anim", className)}
       style={style}
-      initial={{ backgroundPosition: "200% 0" }}
-      animate={
-        shouldRun
-          ? { backgroundPosition: "-100% 0" }
-          : { backgroundPosition: "200% 0" }
-      }
+      initial={{ backgroundPositionX: "200%" }}
+      animate={{ backgroundPositionX: ["200%", "-100%"] }}
       transition={{
         duration,
         delay,
-        ease: "easeInOut",
         repeat: Infinity,
         repeatDelay,
+        ease: "linear",
       }}
     >
       {children}
-    </Component>
+    </motion.span>
   );
 }
+
+export default ShimmerText;

@@ -22,7 +22,7 @@ export function FinalCTA() {
         >
           <span className="block">Smart got you hired.</span>
           <span className="mt-2 block">
-            <ShimmerText duration={2.5} delay={1.0} as="span">
+            <ShimmerText duration={2.5} delay={1.0}>
               Storytelling gets you the next thing.
             </ShimmerText>
           </span>
