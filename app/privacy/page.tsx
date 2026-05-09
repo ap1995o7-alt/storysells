@@ -77,9 +77,32 @@ export default function PrivacyPage() {
             truncated by Google before storage.
           </li>
           <li>
-            We do <strong>not</strong> use Facebook Pixel, TikTok Pixel,
-            LinkedIn Insight Tag, or any other advertising / retargeting
-            trackers.
+            <strong>Meta Pixel (Facebook / Instagram)</strong> — used to
+            measure the effectiveness of our Meta ad campaigns and to
+            attribute purchases to the ad that drove them. The Pixel
+            tracks three events on this site:
+            <ul>
+              <li>
+                <em>PageView</em> — fires on every page load
+              </li>
+              <li>
+                <em>InitiateCheckout</em> — fires when you click any
+                &ldquo;Get the Workbook&rdquo; button
+              </li>
+              <li>
+                <em>Purchase</em> — fires once on the thank-you page
+                after a successful payment, with the order value (₹499)
+              </li>
+            </ul>
+            The Pixel sets a first-party <em>_fbp</em> cookie. If
+            you&apos;re logged into Facebook or Instagram in the same
+            browser, Meta can associate these events with your Meta
+            account; otherwise the data is anonymous to Meta.
+          </li>
+          <li>
+            We do <strong>not</strong> use TikTok Pixel, LinkedIn
+            Insight Tag, Pinterest Tag, or any other ad-network trackers
+            beyond Meta.
           </li>
         </ul>
 
@@ -118,7 +141,7 @@ export default function PrivacyPage() {
         </ul>
 
         <h2>5. Who we share it with</h2>
-        <p>Four parties, only when necessary:</p>
+        <p>Five parties, only when necessary:</p>
         <ul>
           <li>
             <strong>Razorpay</strong> — payment processing. Their privacy
@@ -144,6 +167,18 @@ export default function PrivacyPage() {
             </a>
           </li>
           <li>
+            <strong>Meta (via Pixel)</strong> — page-view, checkout, and
+            purchase events for ad attribution and campaign measurement.
+            Meta&apos;s privacy policy applies to that data:{" "}
+            <a
+              href="https://www.facebook.com/privacy/policy"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              facebook.com/privacy/policy
+            </a>
+          </li>
+          <li>
             <strong>Our email service provider</strong> — to send you the
             workbook download link
           </li>
@@ -152,10 +187,13 @@ export default function PrivacyPage() {
           </li>
         </ul>
         <p>
-          We do not sell your data. We do not run advertising on this
-          site. We do not use your data to train AI models. We do not
-          enable Google&apos;s advertising features within GA4
-          (remarketing, Audiences, or Google Ads linking).
+          We do not sell your data. We do not use your data to train AI
+          models. We do not enable Google&apos;s advertising features
+          within GA4 (remarketing, Audiences, or Google Ads linking). We
+          do use Meta Pixel to attribute conversions and optimize ad
+          spend; if you&apos;d prefer not to be tracked by Meta, install
+          a browser-level blocker (uBlock Origin, Privacy Badger) before
+          visiting.
         </p>
 
         <h2>6. Your rights</h2>
@@ -193,10 +231,16 @@ export default function PrivacyPage() {
             measure aggregate behavior. These cookies expire after about
             two years.
           </li>
+          <li>
+            <strong>Meta Pixel first-party cookie</strong> (<em>_fbp</em>)
+            — used to attribute conversions back to Meta ad campaigns.
+            Expires after 90 days.
+          </li>
         </ul>
         <p>
-          We do not use advertising cookies, retargeting pixels, or
-          cross-site tracking.
+          We do not use third-party advertising cookies, cross-site
+          tracking cookies, or retargeting pixels beyond the Meta Pixel
+          described above.
         </p>
 
         <h2>8. Children</h2>

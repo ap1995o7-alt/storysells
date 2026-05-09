@@ -38,6 +38,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 const GA_ID = "G-TJ53W8VQ2P";
+const META_PIXEL_ID = "950228787793124";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://thatstorysells.in"),
@@ -96,6 +97,34 @@ export default function RootLayout({
             gtag('config', '${GA_ID}');
           `}
         </Script>
+
+        {/* Meta Pixel base code. PageView fires automatically on init.
+            InitiateCheckout and Purchase events are fired manually from
+            buy-button.tsx and the /thank-you page. */}
+        <Script id="meta-pixel" strategy="afterInteractive">
+          {`
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window,document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '${META_PIXEL_ID}');
+            fbq('track', 'PageView');
+          `}
+        </Script>
+        <noscript>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            src={`https://www.facebook.com/tr?id=${META_PIXEL_ID}&ev=PageView&noscript=1`}
+            alt=""
+          />
+        </noscript>
       </body>
     </html>
   );

@@ -2,17 +2,17 @@
 
 import { cn } from "@/lib/utils";
 import type { ReactNode, MouseEventHandler } from "react";
+import { trackInitiateCheckout } from "@/lib/analytics";
 
 const RAZORPAY_PAYMENT_PAGE = "https://rzp.io/rzp/StorySells";
 
 /**
  * Single source of truth for "Get the Workbook" buttons across the page.
- * Redirects to the Razorpay hosted Payment Page.
- *
- * Spec calls this `handleCheckout()` — exporting both names.
+ * Fires Meta Pixel InitiateCheckout, then redirects to Razorpay.
  */
 export function handleBuy() {
   if (typeof window !== "undefined") {
+    trackInitiateCheckout();
     window.location.href = RAZORPAY_PAYMENT_PAGE;
   }
 }

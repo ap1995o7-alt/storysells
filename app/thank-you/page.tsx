@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { BrandLogo } from "@/components/site/brand-logo";
 import { ReceiptId } from "./receipt-id";
+import { PurchaseTracker } from "./purchase-tracker";
 
 export const metadata: Metadata = {
   title: "You're in — Story Sells",
@@ -147,6 +148,7 @@ export default function ThankYouPage() {
           </div>
 
           <ReceiptId />
+          <PurchaseTracker />
         </div>
       </section>
 
