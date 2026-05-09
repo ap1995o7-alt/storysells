@@ -1,35 +1,35 @@
 import { LogoCloud3 } from "@/components/ui/logo-cloud-3";
 
-const COMPANIES = [
-  "Microsoft",
-  "Amazon",
-  "Google",
-  "Nike",
-  "IBM",
-  "Notion",
-] as const;
-
 /**
  * Section 4 — Companies hiring storytellers.
- * Headline + DM Serif Display kicker + InfiniteSlider of brand wordmarks.
  *
- * Wordmarks instead of logo SVGs: stable, no external hosts, no licensing
- * risk. Rendered in Poppins Bold to read as monochrome typographic logos.
+ * Logos sourced from simpleicons.org's CDN, requesting each glyph in
+ * white (FFFFFF). Pure SVG, single-color, no licensing risk for
+ * editorial / informational use.
+ *
+ * Rendered with a plain <img> tag (not next/image) so the SVG is
+ * served directly without optimization round-trips.
  */
+const LOGOS: { src: string; alt: string }[] = [
+  { src: "https://cdn.simpleicons.org/microsoft/FFFFFF", alt: "Microsoft" },
+  { src: "https://cdn.simpleicons.org/amazon/FFFFFF", alt: "Amazon" },
+  { src: "https://cdn.simpleicons.org/google/FFFFFF", alt: "Google" },
+  { src: "https://cdn.simpleicons.org/nike/FFFFFF", alt: "Nike" },
+  { src: "https://cdn.simpleicons.org/ibm/FFFFFF", alt: "IBM" },
+  { src: "https://cdn.simpleicons.org/notion/FFFFFF", alt: "Notion" },
+];
+
 export function Companies() {
-  const logos = COMPANIES.map((name) => (
-    <span
-      key={name}
-      className="font-[family-name:var(--font-poppins)] font-bold uppercase text-foreground/80 transition-colors hover:text-foreground"
-      style={{
-        fontSize: "clamp(20px, 2.4vw, 28px)",
-        letterSpacing: "-0.02em",
-        lineHeight: 1,
-      }}
-      aria-label={name}
-    >
-      {name}
-    </span>
+  const logos = LOGOS.map((logo) => (
+    /* eslint-disable-next-line @next/next/no-img-element */
+    <img
+      key={logo.src}
+      src={logo.src}
+      alt={logo.alt}
+      className="h-6 w-auto opacity-90 transition-opacity hover:opacity-100 md:h-8"
+      loading="lazy"
+      decoding="async"
+    />
   ));
 
   return (
@@ -51,10 +51,12 @@ export function Companies() {
         </h2>
 
         <p
-          className="mt-6 text-center italic text-muted-foreground md:mt-8"
+          className="mt-4 text-center font-[family-name:var(--font-dm-sans)] text-foreground"
           style={{
-            fontFamily: "var(--font-dm-serif-display), Georgia, serif",
-            fontSize: "clamp(18px, 2vw, 24px)",
+            fontWeight: 500,
+            fontSize: "clamp(16px, 2vw, 20px)",
+            letterSpacing: "-0.01em",
+            lineHeight: 1.4,
           }}
         >
           The oldest human skill. The newest job title.

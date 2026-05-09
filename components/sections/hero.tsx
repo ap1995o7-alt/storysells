@@ -11,7 +11,7 @@ export function Hero() {
       id="top"
       className="relative pt-28 md:min-h-[100vh] md:pt-32"
     >
-      <div className="mx-auto flex w-full max-w-[1280px] items-center px-5 pb-20 md:min-h-[calc(100vh-6rem)] md:px-12 md:pb-24">
+      <div className="mx-auto flex w-full max-w-[1280px] items-center px-5 pb-24 md:min-h-[calc(100vh-6rem)] md:px-12 md:pb-40">
         <div className="grid w-full grid-cols-1 items-center gap-12 md:grid-cols-12 md:gap-16">
           {/* Left — text */}
           <div className="md:col-span-7">
@@ -26,16 +26,17 @@ export function Hero() {
             </p>
 
             <h1
-              className="mt-6 font-[family-name:var(--font-poppins)] font-extrabold text-foreground"
+              className="mt-6 font-[family-name:var(--font-poppins)] font-bold text-foreground"
               style={{
-                fontSize: "clamp(40px, 7vw, 80px)",
-                lineHeight: 1.0,
+                fontSize: "clamp(32px, 4.5vw, 48px)",
+                fontWeight: 700,
+                lineHeight: 1.1,
                 letterSpacing: "-0.02em",
               }}
             >
               <span className="block">Smart got you hired.</span>
-              <span className="mt-2 block">
-                <ShimmerText duration={2.0} delay={1.5} as="span">
+              <span className="mt-1 block">
+                <ShimmerText duration={2.5} delay={1.0} as="span">
                   Storytelling gets you promoted.
                 </ShimmerText>
               </span>

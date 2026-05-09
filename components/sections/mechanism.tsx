@@ -34,7 +34,7 @@ export function Mechanism() {
             letterSpacing: "-0.02em",
           }}
         >
-          <ShimmerText duration={2.0} delay={0.5} as="span">
+          <ShimmerText duration={2.5} delay={1.0} as="span">
             This isn&apos;t talent. It&apos;s a system.
           </ShimmerText>
         </h2>
@@ -43,11 +43,9 @@ export function Mechanism() {
           {COLUMNS.map((c) => (
             <div
               key={c.title}
-              className={
-                c.highlighted
-                  ? "rounded-2xl border border-border bg-card p-8"
-                  : ""
-              }
+              className={`mechanism-card rounded-2xl border border-border bg-card p-8 ${
+                c.highlighted ? "workbook-card" : ""
+              }`}
               style={
                 c.highlighted
                   ? { borderTop: "2px solid var(--accent)" }

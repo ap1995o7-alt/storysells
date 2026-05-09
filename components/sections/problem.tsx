@@ -8,7 +8,7 @@ export function Problem() {
       id="problem"
       className="bg-background"
     >
-      <div className="mx-auto w-full max-w-[720px] px-5 py-20 md:px-6 md:py-[120px]">
+      <div className="mx-auto w-full max-w-[720px] px-5 pb-20 pt-24 md:px-6 md:pb-[120px] md:pt-40">
         <h2
           className="font-[family-name:var(--font-poppins)] font-bold text-foreground"
           style={{

@@ -9,21 +9,12 @@ const QUOTES = [
       "Your stories don't sound like stories to you — they sound like life. That's exactly why most people think they don't have any.",
     cite: "Framework 01 / Where You Are",
     source: "from Kindra Hall's Stories That Stick",
-    isPlaceholder: false,
   },
   {
     quote:
       "One level of conflict gets attention. Two creates tension. Three makes your story feel important. Map all three, even if you only use one at a time.",
     cite: "Framework 12 / The 3 Levels of Conflict",
     source: "from Robert McKee's Story",
-    isPlaceholder: false,
-  },
-  {
-    quote:
-      "[PLACEHOLDER — to be replaced before launch with actual workbook copy on Matthew Dicks's “The Turn” or comparable framework. Format: a single-paragraph line that names the payoff of well-told story. The user will provide this from their workbook draft.]",
-    cite: "Framework 24 / The Turn",
-    source: "from Matthew Dicks's Storyworthy",
-    isPlaceholder: true,
   },
 ] as const;
 
@@ -45,7 +36,7 @@ export function Quotes() {
           In the workbook.
         </h2>
 
-        <div className="mt-16 space-y-12 md:space-y-20">
+        <div className="mt-16 space-y-16 md:space-y-24">
           {QUOTES.map((q, i) => (
             <article key={i}>
               <p
@@ -56,9 +47,7 @@ export function Quotes() {
                 /
               </p>
               <blockquote
-                className={`mt-4 italic ${
-                  q.isPlaceholder ? "text-muted-foreground" : "text-foreground"
-                }`}
+                className="mt-4 italic text-foreground"
                 style={{
                   fontFamily:
                     "var(--font-dm-serif-display), Georgia, serif",
