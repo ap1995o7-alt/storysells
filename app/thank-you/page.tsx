@@ -23,74 +23,89 @@ const STEPS = [
   },
   {
     label: "Step 03",
-    title: "Start with Section 1",
-    body: "Don't try to read it cover-to-cover. Open Framework 01 (the One-Line Pitch), apply it to whatever you're writing this week, and watch what changes.",
+    title: "Start with Framework 01",
+    body: "Don't try to read it cover-to-cover. Open Framework 01 (Where You Are), apply it to whatever you're writing this week, and watch what changes.",
   },
 ] as const;
 
 export default function ThankYouPage() {
   return (
-    <main className="min-h-screen bg-canvas">
-      <header className="border-b border-line">
-        <div className="mx-auto flex h-16 w-full max-w-[1440px] items-center justify-between px-5 md:px-12">
+    <main className="min-h-screen bg-background">
+      <header className="border-b border-border">
+        <div className="mx-auto flex h-16 w-full max-w-[1200px] items-center justify-between px-5 md:px-6">
           <Link href="/" aria-label="Story Sells home">
             <BrandLogo />
           </Link>
           <Link
             href="/"
-            className="label-caps inline-flex items-center gap-2 text-ink-muted transition-colors hover:text-ink"
+            className="inline-flex items-center gap-2 font-[family-name:var(--font-jetbrains-mono)] text-[12px] uppercase text-muted-foreground transition-colors hover:text-foreground"
+            style={{ letterSpacing: "0.1em" }}
           >
             <ArrowLeft className="h-3.5 w-3.5" /> Back to home
           </Link>
         </div>
       </header>
 
-      <section className="mx-auto w-full max-w-[1440px] px-5 py-24 md:px-12 md:py-32">
+      <section className="mx-auto w-full max-w-[1200px] px-5 py-20 md:px-6 md:py-[120px]">
         <div className="max-w-[840px]">
-          <p className="label-caps mb-8 text-ink-muted">
-            Order received
-            <span aria-hidden="true" className="brand-slash mx-2">/</span>
-            ₹499
+          <p
+            className="mb-6 font-[family-name:var(--font-jetbrains-mono)] text-[12px] uppercase"
+            style={{ color: "var(--accent)", letterSpacing: "0.1em" }}
+          >
+            Order received / ₹499
           </p>
 
-          <h1 className="display-xl text-ink">You&apos;re in.</h1>
+          <h1
+            className="font-[family-name:var(--font-poppins)] font-extrabold text-foreground"
+            style={{
+              fontSize: "clamp(48px, 8vw, 80px)",
+              lineHeight: 1.0,
+              letterSpacing: "-0.02em",
+            }}
+          >
+            You&apos;re in.
+          </h1>
 
-          <p className="body-lg mt-8 max-w-[640px] text-ink-tint">
+          <p className="mt-8 max-w-[640px] text-[18px] leading-[1.6] text-muted-foreground">
             Your payment has been received. Your workbook is ready below.
           </p>
 
           {/* Primary CTA: download the workbook */}
           <div
-            className="mt-12 border border-line bg-surface-low p-6 md:p-10"
-            style={{ borderLeft: "2px solid var(--accent-red)" }}
+            className="mt-12 rounded-2xl border border-border bg-card p-6 md:p-10"
+            style={{ borderLeft: "2px solid var(--accent)" }}
           >
-            <p className="label-caps mb-4 text-ink-muted">Your workbook</p>
-            <p className="headline-md text-ink">
+            <p
+              className="font-[family-name:var(--font-jetbrains-mono)] text-[12px] uppercase text-muted-foreground"
+              style={{ letterSpacing: "0.1em" }}
+            >
+              Your workbook
+            </p>
+            <p className="mt-2 font-[family-name:var(--font-poppins)] text-[24px] font-bold text-foreground">
               Story Sells — 76 Frameworks, 191 Pages
             </p>
             {/*
               TODO: Replace `#` below with the actual signed download URL or
               a path to the PDF in /public (e.g. "/workbook/story-sells.pdf").
-              Consider gating delivery via a signed URL or short-lived token
-              if you want to deter sharing.
             */}
             <a
               href="#"
               download
-              className="btn-primary mt-8 inline-flex"
+              className="mt-8 inline-flex items-center justify-center gap-2 rounded-xl bg-accent px-6 py-4 font-[family-name:var(--font-poppins)] text-[16px] font-bold text-accent-foreground transition-all hover:brightness-110"
               aria-label="Download Story Sells workbook"
             >
               Download Workbook (PDF)
             </a>
-            <p className="body-md mt-5 text-ink-muted">
+            <p className="mt-4 text-[14px] text-muted-foreground">
               Save a copy locally. You can fill it in directly inside any PDF
               reader.
             </p>
-            <p className="body-md mt-6 border-t border-line pt-5 text-ink-tint">
+            <p className="mt-6 border-t border-border pt-5 text-[14px] text-muted-foreground">
               Trouble downloading? Email{" "}
               <a
                 href="mailto:storythatsellsforyou@gmail.com"
-                className="text-ink hover:underline"
+                className="hover:underline"
+                style={{ color: "var(--foreground)" }}
               >
                 storythatsellsforyou@gmail.com
               </a>
@@ -100,19 +115,31 @@ export default function ThankYouPage() {
 
           {/* What happens next */}
           <div className="mt-20">
-            <p className="label-caps mb-6 text-ink-muted">What happens next</p>
-            <ol className="border-t border-line">
+            <p
+              className="mb-6 font-[family-name:var(--font-jetbrains-mono)] text-[12px] uppercase text-muted-foreground"
+              style={{ letterSpacing: "0.1em" }}
+            >
+              What happens next
+            </p>
+            <ol className="border-t border-border">
               {STEPS.map((s) => (
                 <li
                   key={s.label}
-                  className="grid grid-cols-1 gap-4 border-b border-line py-8 md:grid-cols-12 md:gap-8"
+                  className="grid grid-cols-1 gap-4 border-b border-border py-8 md:grid-cols-12 md:gap-8"
                 >
-                  <p className="label-caps text-ink-muted md:col-span-3">
+                  <p
+                    className="font-[family-name:var(--font-jetbrains-mono)] text-[12px] uppercase text-muted-foreground md:col-span-3"
+                    style={{ letterSpacing: "0.1em" }}
+                  >
                     {s.label}
                   </p>
                   <div className="md:col-span-9">
-                    <h2 className="headline-md text-ink">{s.title}</h2>
-                    <p className="body-md mt-3 text-ink-tint">{s.body}</p>
+                    <h2 className="font-[family-name:var(--font-poppins)] text-[22px] font-bold leading-[1.2] text-foreground md:text-[24px]">
+                      {s.title}
+                    </h2>
+                    <p className="mt-3 text-[16px] leading-[1.6] text-muted-foreground">
+                      {s.body}
+                    </p>
                   </div>
                 </li>
               ))}
@@ -123,36 +150,17 @@ export default function ThankYouPage() {
         </div>
       </section>
 
-      <footer className="border-t border-line">
-        <div className="mx-auto flex w-full max-w-[1440px] flex-col items-start justify-between gap-4 px-5 py-8 md:flex-row md:items-center md:px-12">
+      <footer className="border-t border-border">
+        <div className="mx-auto flex w-full max-w-[1200px] flex-col items-start justify-between gap-4 px-5 py-8 md:flex-row md:items-center md:px-6">
           <BrandLogo size="sm" />
-          <ul className="flex flex-wrap items-center gap-6">
-            <li>
-              <Link
-                href="/privacy"
-                className="label-caps text-ink-muted hover:text-ink"
-              >
-                Privacy
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/terms"
-                className="label-caps text-ink-muted hover:text-ink"
-              >
-                Terms
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/refund"
-                className="label-caps text-ink-muted hover:text-ink"
-              >
-                Refund
-              </Link>
-            </li>
+          <ul className="flex flex-wrap items-center gap-2 text-[13px] text-muted-foreground">
+            <li><Link href="/privacy" className="hover:text-foreground">Privacy</Link></li>
+            <li aria-hidden="true">·</li>
+            <li><Link href="/terms" className="hover:text-foreground">Terms</Link></li>
+            <li aria-hidden="true">·</li>
+            <li><Link href="/refund" className="hover:text-foreground">Refund</Link></li>
           </ul>
-          <p className="label-caps text-ink-muted">© 2025 Story / Sells</p>
+          <p className="text-[13px] text-muted-foreground">© 2025 Story / Sells</p>
         </div>
       </footer>
     </main>

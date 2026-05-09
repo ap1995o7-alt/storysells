@@ -1,55 +1,66 @@
 import { Check, X } from "lucide-react";
 
 const FOR_LIST = [
-  "You present, pitch, or write for a living — and it's not landing the way it should.",
-  "You've been told you “need to communicate better” without anyone showing you how.",
-  "You want a tool you can pull out before a meeting, not a 6-week course.",
-  "You're a marketer, PM, salesperson, founder, consultant, or freelancer.",
-  "You'd rather fill in a framework in 15 minutes than read another 300-page book.",
+  "“Communicate better” is on your last three reviews and you've never been told what that means.",
+  "Your idea got nodded at, then repeated by someone else, then funded.",
+  "You'd rather fill in a 15-minute framework than read another 300-page book.",
+  "You want this for the boardroom and the wedding toast, the LinkedIn post, the apology, and the “tell me about yourself.”",
 ];
 
 const NOT_FOR_LIST = [
-  "You're looking for fiction writing or creative writing craft.",
-  "You want calls, community, and hand-holding.",
-  "You expect to read this like a book and feel productive — this is a workbook, you have to do the work.",
+  "You're looking to write fiction, screenplays, or memoir.",
+  "You want calls, coaching, community, or hand-holding.",
+  "You think you can read a workbook and skip the worksheets.",
   "You think storytelling is fluff and you just need “better data.”",
+  "You're hoping AI will do this for you — it can't, and that's the whole point.",
 ];
 
 export function WhoItsFor() {
   return (
     <section
       aria-label="Who it's for"
-      className="border-t border-line"
+      className="bg-background"
     >
-      <div className="mx-auto w-full max-w-[1440px] px-5 py-24 md:px-12 md:py-32">
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
-          <div className="border border-line bg-surface-low p-6 md:p-10">
-            <p className="label-caps mb-8 text-ink-muted">This is for you if…</p>
-            <ul className="space-y-5">
+      <div className="mx-auto w-full max-w-[1100px] px-5 py-20 md:px-6 md:py-[120px]">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16">
+          {/* For */}
+          <div>
+            <h3 className="font-[family-name:var(--font-poppins)] text-[28px] font-bold text-foreground">
+              This is for you if&hellip;
+            </h3>
+            <ul className="mt-8 space-y-4">
               {FOR_LIST.map((item) => (
-                <li key={item} className="flex items-start gap-4">
+                <li key={item} className="flex items-start gap-3">
                   <Check
-                    className="mt-[6px] h-4 w-4 shrink-0 text-ink"
-                    strokeWidth={2.25}
                     aria-hidden="true"
+                    className="mt-[5px] h-4 w-4 shrink-0"
+                    strokeWidth={2.5}
+                    style={{ color: "var(--accent)" }}
                   />
-                  <span className="body-md text-ink">{item}</span>
+                  <span className="text-[16px] leading-[1.6] text-foreground">
+                    {item}
+                  </span>
                 </li>
               ))}
             </ul>
           </div>
 
-          <div className="border border-line bg-surface-low p-6 md:p-10">
-            <p className="label-caps mb-8 text-ink-muted">This is not for you if…</p>
-            <ul className="space-y-5">
+          {/* Not For */}
+          <div>
+            <h3 className="font-[family-name:var(--font-poppins)] text-[28px] font-bold text-muted-foreground">
+              This is not for you if&hellip;
+            </h3>
+            <ul className="mt-8 space-y-4">
               {NOT_FOR_LIST.map((item) => (
-                <li key={item} className="flex items-start gap-4">
+                <li key={item} className="flex items-start gap-3">
                   <X
-                    className="mt-[6px] h-4 w-4 shrink-0 text-ink-muted"
-                    strokeWidth={2.25}
                     aria-hidden="true"
+                    className="mt-[5px] h-4 w-4 shrink-0 text-muted-foreground"
+                    strokeWidth={2.5}
                   />
-                  <span className="body-md text-ink-tint">{item}</span>
+                  <span className="text-[16px] leading-[1.6] text-muted-foreground">
+                    {item}
+                  </span>
                 </li>
               ))}
             </ul>

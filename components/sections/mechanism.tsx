@@ -1,36 +1,87 @@
+import { ShimmerText } from "@/components/ui/shimmer-text";
+
 const COLUMNS = [
   {
-    label: "Source",
-    title: "30 Books",
-    body:
-      "I read McKee, Aristotle, Campbell, Duarte, Kindra Hall, Will Storr, Matthew Dicks, and 23 more. 18 months. Roughly 8,000 pages. I took notes on everything that actually worked — not in a classroom, but in a pitch, a LinkedIn post, a Slack message, a sales call.",
+    eyebrow: "Today",
+    title: "You walk into meetings with strong data and weak delivery.",
+    body: "Your point lands when someone else repeats it. Your post gets two likes. Your deck gets nodded at, then forgotten.",
+    highlighted: false,
   },
   {
-    label: "Method",
-    title: "76 Frameworks",
-    body:
-      "Each framework is a deployable tool. The Curiosity Gap. The SCQA. Three Levels of Conflict. The One-Line Pitch. The Ladder of Abstraction. You don't study them. You fill them in for YOUR audience, YOUR product, YOUR next presentation. 15 minutes per framework.",
+    eyebrow: "The Workbook",
+    title: "76 fillable frameworks from 30 books.",
+    body: "McKee, Aristotle, Campbell, Duarte, Kindra Hall, Will Storr, Matthew Dicks, and 23 more — distilled into worksheets you fill in for your audience, your product, your next pitch. ~15 minutes each. The framework does the thinking; you do the typing.",
+    highlighted: true,
   },
   {
-    label: "Output",
-    title: "Usable Outputs",
-    body:
-      "Every worksheet ends with a red-bordered box called YOUR OUTPUT. That box is the whole point. It's a hook, a headline, a pitch paragraph, or a story you can paste directly into your deck, your post, or your email. Not theory. Not journaling. A deliverable.",
+    eyebrow: "Four Weeks In",
+    title: "You walk in with the same data and a different shape.",
+    body: "Three frameworks a week. Your point lands the first time. Your posts get forwarded. Your decks make it to the next meeting.",
+    bodyAccent: "Not theory. Not journaling. A deliverable.",
+    highlighted: false,
   },
 ] as const;
 
 export function Mechanism() {
   return (
-    <section id="mechanism" className="border-t border-line">
-      <div className="mx-auto w-full max-w-[1440px] px-5 py-24 md:px-12 md:py-32">
-        <p className="label-caps mb-12 text-ink-muted">The Mechanism</p>
+    <section id="mechanism" className="bg-background">
+      <div className="mx-auto w-full max-w-[1200px] px-5 py-20 md:px-6 md:py-[120px]">
+        <h2
+          className="text-center font-[family-name:var(--font-poppins)] font-bold text-foreground"
+          style={{
+            fontSize: "clamp(40px, 5.5vw, 56px)",
+            lineHeight: 1.05,
+            letterSpacing: "-0.02em",
+          }}
+        >
+          <ShimmerText duration={2.0} delay={0.5} as="span">
+            This isn&apos;t talent. It&apos;s a system.
+          </ShimmerText>
+        </h2>
 
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-8">
+        <div className="mt-12 grid grid-cols-1 gap-8 md:mt-20 md:grid-cols-3">
           {COLUMNS.map((c) => (
-            <div key={c.title} className="border-t border-surface-variant pt-8">
-              <p className="label-caps mb-4 text-ink-muted">{c.label}</p>
-              <h3 className="headline-md text-ink">{c.title}</h3>
-              <p className="body-md mt-5 text-ink-tint">{c.body}</p>
+            <div
+              key={c.title}
+              className={
+                c.highlighted
+                  ? "rounded-2xl border border-border bg-card p-8"
+                  : ""
+              }
+              style={
+                c.highlighted
+                  ? { borderTop: "2px solid var(--accent)" }
+                  : undefined
+              }
+            >
+              <p
+                className="font-[family-name:var(--font-jetbrains-mono)] text-[12px] font-medium uppercase"
+                style={{
+                  color: "var(--accent)",
+                  letterSpacing: "0.1em",
+                }}
+              >
+                {c.eyebrow}
+              </p>
+              <h3 className="mt-4 font-[family-name:var(--font-poppins)] text-[22px] font-bold leading-[1.2] text-foreground md:text-[24px]">
+                {c.title}
+              </h3>
+              <p className="mt-4 text-[16px] leading-[1.6] text-muted-foreground">
+                {c.body}
+              </p>
+              {"bodyAccent" in c && c.bodyAccent && (
+                <p className="mt-4 text-[16px] leading-[1.6] text-foreground">
+                  <span
+                    className="inline-block"
+                    style={{
+                      borderBottom: "2px solid var(--accent)",
+                      paddingBottom: "2px",
+                    }}
+                  >
+                    {c.bodyAccent}
+                  </span>
+                </p>
+              )}
             </div>
           ))}
         </div>

@@ -1,45 +1,56 @@
-import Image from "next/image";
-
+/**
+ * Section 2 — Invisible Tax
+ * Single column, max-width 720px, centered.
+ */
 export function Problem() {
   return (
-    <section id="problem" className="border-t border-line">
-      <div className="mx-auto w-full max-w-[1440px] px-5 py-24 md:px-12 md:py-32">
-        <div className="grid grid-cols-12 gap-8 lg:gap-12">
-          <div className="col-span-12 lg:col-span-5">
-            <p className="label-caps mb-8 text-ink-muted">The Invisible Tax</p>
+    <section
+      id="problem"
+      className="bg-background"
+    >
+      <div className="mx-auto w-full max-w-[720px] px-5 py-20 md:px-6 md:py-[120px]">
+        <h2
+          className="font-[family-name:var(--font-poppins)] font-bold text-foreground"
+          style={{
+            fontSize: "clamp(32px, 5vw, 48px)",
+            lineHeight: 1.1,
+            letterSpacing: "-0.02em",
+          }}
+        >
+          You&apos;ve been in this meeting.
+        </h2>
 
-            <h2 className="headline-lg text-ink">You&apos;ve had this moment.</h2>
-
-            <div className="body-lg mt-8 space-y-6 text-ink-tint">
-              <p>
-                You&apos;re in a meeting. You&apos;ve done the work. Your
-                research is solid. You open your mouth.
-              </p>
-              <p className="text-ink">And the room just… doesn&apos;t move.</p>
-              <p>
-                Then someone else says roughly the same thing. Maybe worse.
-                But they say it differently. The room nods. The decision
-                moves. You sit there wondering what the hell just happened.
-              </p>
-              <p>
-                That&apos;s not a confidence problem. It&apos;s not a
-                charisma problem. It&apos;s a structure problem. And it has
-                a fix.
-              </p>
-            </div>
-          </div>
-
-          <div className="col-span-12 lg:col-span-7">
-            <div className="relative aspect-[4/3] w-full border border-line bg-surface-low">
-              <Image
-                src="/hf_20260501_142432_a169a33d-3bc6-4b68-81a1-4abfb8c62a27.png"
-                alt="Story Sells workbook on a desk"
-                fill
-                sizes="(max-width: 1024px) 100vw, 60vw"
-                className="editorial-image object-cover"
-              />
-            </div>
-          </div>
+        <div
+          className="mt-10 space-y-6 text-[16px] md:text-[18px]"
+          style={{ color: "#E4E4E7", lineHeight: 1.7, maxWidth: "65ch" }}
+        >
+          <p>
+            You&apos;ve done the work. The numbers check out. You open
+            your mouth and the room doesn&apos;t move.
+          </p>
+          <p>
+            Two minutes later, someone else says roughly the same
+            thing. The room nods. The decision moves. You sit there
+            wondering what just happened.
+          </p>
+          <p>
+            What just happened is this: they told it like a story. You
+            explained it like a report. The data was identical. The
+            structure wasn&apos;t.
+          </p>
+          <p className="font-bold text-foreground">
+            That&apos;s the gap{" "}
+            <span
+              className="inline-block"
+              style={{
+                borderBottom: "2px solid var(--accent)",
+                paddingBottom: "2px",
+              }}
+            >
+              this workbook closes
+            </span>
+            .
+          </p>
         </div>
       </div>
     </section>

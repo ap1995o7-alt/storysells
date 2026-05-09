@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default function TermsPage() {
   return (
     <LegalShell title="Terms & Conditions">
-      <p className="body-md text-ink-tint">
+      <p className="text-[16px] leading-[1.6] text-muted-foreground">
         Content will be added before launch.
       </p>
     </LegalShell>

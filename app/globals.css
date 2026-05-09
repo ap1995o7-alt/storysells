@@ -5,111 +5,71 @@
 @custom-variant dark (&:is(.dark *));
 
 /* ============================================================
-   EDITORIAL NOIR — Carbon and Bone
+   STORY SELLS — Brand tokens
    ============================================================ */
 
 :root {
-  /* Surfaces */
-  --background: #0f0e0d;
-  --surface-container: #1a1918;
-  --surface-container-low: #141313;
-  --surface-variant: #2b2a29;
+  --background: #0F0E0D;
+  --foreground: #FFFFFF;
+  --muted-foreground: #A1A1AA;
+  --accent: #E24B4A;
+  --accent-foreground: #FFFFFF;
+  --border: rgba(255, 255, 255, 0.08);
+  --card-bg: rgba(255, 255, 255, 0.02);
 
-  /* Text */
-  --text-primary: #f2f0ec;
-  --text-muted: #8a8680;
-  --text-surface-tint: #c8c6c3;
-
-  /* Accent */
-  --accent-red: #e5352a;
-
-  /* Borders */
-  --border: rgba(242, 240, 236, 0.1);
-  --border-hover: rgba(242, 240, 236, 0.2);
-
-  /* shadcn shims (sharp corners + dark palette) */
-  --foreground: var(--text-primary);
-  --card: var(--surface-container);
-  --card-foreground: var(--text-primary);
-  --popover: var(--surface-container);
-  --popover-foreground: var(--text-primary);
-  --primary: var(--text-primary);
-  --primary-foreground: var(--background);
-  --secondary: var(--surface-container);
-  --secondary-foreground: var(--text-primary);
-  --muted: var(--surface-container-low);
-  --muted-foreground: var(--text-muted);
-  --accent: var(--surface-container);
-  --accent-foreground: var(--text-primary);
-  --destructive: var(--accent-red);
+  /* shadcn shims */
+  --card: var(--card-bg);
+  --card-foreground: var(--foreground);
+  --popover: var(--card-bg);
+  --popover-foreground: var(--foreground);
+  --primary: var(--accent);
+  --primary-foreground: var(--accent-foreground);
+  --secondary: var(--card-bg);
+  --secondary-foreground: var(--foreground);
+  --muted: var(--card-bg);
+  --accent-foreground-shadcn: var(--foreground);
+  --destructive: var(--accent);
   --input: var(--border);
-  --ring: var(--text-muted);
-  --radius: 0px;
+  --ring: var(--accent);
+  --radius: 0.75rem; /* default rounded-xl */
 
-  /* sidebar shims (unused, kept to satisfy theme) */
-  --sidebar: var(--surface-container);
-  --sidebar-foreground: var(--text-primary);
-  --sidebar-primary: var(--text-primary);
-  --sidebar-primary-foreground: var(--background);
-  --sidebar-accent: var(--surface-container);
-  --sidebar-accent-foreground: var(--text-primary);
+  /* sidebar shims (unused) */
+  --sidebar: var(--background);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: var(--accent);
+  --sidebar-primary-foreground: var(--accent-foreground);
+  --sidebar-accent: var(--card-bg);
+  --sidebar-accent-foreground: var(--foreground);
   --sidebar-border: var(--border);
-  --sidebar-ring: var(--text-muted);
+  --sidebar-ring: var(--accent);
 }
 
 @theme inline {
-  /* Color tokens for Tailwind utilities (bg-canvas, text-ink, etc.) */
-  --color-canvas: var(--background);
-  --color-surface: var(--surface-container);
-  --color-surface-low: var(--surface-container-low);
-  --color-surface-variant: var(--surface-variant);
-  --color-ink: var(--text-primary);
-  --color-ink-muted: var(--text-muted);
-  --color-ink-tint: var(--text-surface-tint);
-  --color-accent: var(--accent-red);
-  --color-line: var(--border);
-  --color-line-hover: var(--border-hover);
-
-  /* Override shadcn defaults so its components inherit the dark palette */
+  /* Color tokens — accessible via Tailwind utilities */
   --color-background: var(--background);
-  --color-foreground: var(--text-primary);
+  --color-foreground: var(--foreground);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
   --color-border: var(--border);
+  --color-card: var(--card-bg);
+  --color-card-foreground: var(--foreground);
+  --color-popover: var(--card-bg);
+  --color-popover-foreground: var(--foreground);
+  --color-primary: var(--accent);
+  --color-primary-foreground: var(--accent-foreground);
+  --color-secondary: var(--card-bg);
+  --color-secondary-foreground: var(--foreground);
+  --color-muted: var(--card-bg);
   --color-input: var(--border);
-  --color-ring: var(--text-muted);
-  --color-card: var(--surface-container);
-  --color-card-foreground: var(--text-primary);
-  --color-popover: var(--surface-container);
-  --color-popover-foreground: var(--text-primary);
-  --color-primary: var(--text-primary);
-  --color-primary-foreground: var(--background);
-  --color-secondary: var(--surface-container);
-  --color-secondary-foreground: var(--text-primary);
-  --color-muted: var(--surface-container-low);
-  --color-muted-foreground: var(--text-muted);
-  --color-accent-foreground: var(--text-primary);
-  --color-destructive: var(--accent-red);
+  --color-ring: var(--accent);
+  --color-destructive: var(--accent);
 
-  /* Fonts (next/font injects these CSS variables on <html>) */
-  --font-sans: var(--font-inter);
-  --font-heading: var(--font-epilogue);
-  --font-mono: var(--font-space-grotesk);
-
-  /* Sharp corners everywhere — every Tailwind radius collapses to 0 */
-  --radius: 0px;
-  --radius-sm: 0px;
-  --radius-md: 0px;
-  --radius-lg: 0px;
-  --radius-xl: 0px;
-  --radius-2xl: 0px;
-  --radius-3xl: 0px;
-  --radius-4xl: 0px;
-
-  /* Custom spacing scale (4px base) — usable as p-xs, gap-md, etc. */
-  --spacing-xs: 8px;
-  --spacing-sm: 16px;
-  --spacing-md: 32px;
-  --spacing-lg: 64px;
-  --spacing-xl: 128px;
+  /* Fonts (next/font injects CSS variables on <html>) */
+  --font-sans: var(--font-dm-sans);
+  --font-heading: var(--font-poppins);
+  --font-serif: var(--font-dm-serif-display);
+  --font-mono: var(--font-jetbrains-mono);
 }
 
 /* ============================================================
@@ -117,13 +77,13 @@
    ============================================================ */
 @layer base {
   * {
-    @apply border-line outline-ink-muted/40;
+    @apply border-border outline-ring/40;
   }
 
   html {
     background-color: var(--background);
-    color: var(--text-primary);
-    font-family: var(--font-inter), system-ui, sans-serif;
+    color: var(--foreground);
+    font-family: var(--font-dm-sans), system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
@@ -131,173 +91,53 @@
 
   body {
     background-color: var(--background);
-    color: var(--text-primary);
-    font-feature-settings: "ss01", "kern";
+    color: var(--foreground);
+    font-feature-settings: "kern";
   }
 
   ::selection {
-    background: var(--accent-red);
+    background: var(--accent);
     color: #ffffff;
   }
 
-  /* Heading defaults */
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-epilogue), system-ui, sans-serif;
-    color: var(--text-primary);
+    font-family: var(--font-poppins), system-ui, sans-serif;
+    color: var(--foreground);
   }
 
-  /* Native focus ring */
   :focus-visible {
-    outline: 1px solid var(--text-primary);
+    outline: 2px solid var(--accent);
     outline-offset: 2px;
   }
 }
 
 /* ============================================================
-   Editorial typography utility classes
-   ============================================================ */
-@layer components {
-  .display-xl {
-    font-family: var(--font-epilogue), system-ui, sans-serif;
-    font-weight: 800;
-    font-size: clamp(48px, 8vw, 80px);
-    line-height: 1.0;
-    letter-spacing: -0.04em;
-  }
-
-  .headline-lg {
-    font-family: var(--font-epilogue), system-ui, sans-serif;
-    font-weight: 700;
-    font-size: clamp(32px, 5vw, 48px);
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-  }
-
-  .headline-md {
-    font-family: var(--font-epilogue), system-ui, sans-serif;
-    font-weight: 700;
-    font-size: clamp(24px, 3.5vw, 32px);
-    line-height: 1.2;
-    letter-spacing: -0.01em;
-  }
-
-  .body-lg {
-    font-family: var(--font-inter), system-ui, sans-serif;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 1.8;
-  }
-
-  .body-md {
-    font-family: var(--font-inter), system-ui, sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.6;
-  }
-
-  .label-caps {
-    font-family: var(--font-space-grotesk), system-ui, sans-serif;
-    font-weight: 600;
-    font-size: 12px;
-    line-height: 1.0;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-
-  /* The brand slash */
-  .brand-slash {
-    color: var(--accent-red);
-    font-weight: 800;
-  }
-
-  /* Editorial CTA — accent red, sharp, with subtle radial glow */
-  .btn-primary {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    padding: 18px 28px;
-    background-color: var(--accent-red);
-    color: #ffffff;
-    border: 0;
-    cursor: pointer;
-    font-family: var(--font-space-grotesk), system-ui, sans-serif;
-    font-weight: 600;
-    font-size: 13px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    transition: background-color 160ms ease, transform 160ms ease;
-    isolation: isolate;
-  }
-
-  .btn-primary::before {
-    content: "";
-    position: absolute;
-    inset: -40px;
-    background: radial-gradient(closest-side, rgba(229, 53, 42, 0.18), transparent 70%);
-    z-index: -1;
-    pointer-events: none;
-  }
-
-  .btn-primary:hover { background-color: #d12b21; }
-  .btn-primary:active { transform: translateY(1px); }
-
-  .btn-ghost {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    padding: 18px 28px;
-    background-color: transparent;
-    color: var(--text-primary);
-    border: 1px solid var(--border);
-    cursor: pointer;
-    font-family: var(--font-space-grotesk), system-ui, sans-serif;
-    font-weight: 600;
-    font-size: 13px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    transition: border-color 160ms ease, background-color 160ms ease;
-  }
-
-  .btn-ghost:hover {
-    border-color: var(--border-hover);
-    background-color: var(--surface-container-low);
-  }
-
-  /* Editorial editorial-image treatment for product mockups */
-  .editorial-image {
-    filter: grayscale(100%);
-    opacity: 0.8;
-    mix-blend-mode: luminosity;
-  }
-}
-
-/* ============================================================
-   Component-scoped helpers
+   Helpers
    ============================================================ */
 
-/* Marquee animation used by the cinematic footer */
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-
-.marquee-track {
-  animation: marquee 40s linear infinite;
-  will-change: transform;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .marquee-track { animation: none; }
-}
-
-/* Hide scrollbars on horizontal carousels (mobile) */
+/* Hide scrollbars on horizontal carousels */
 .scrollbar-none {
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
 .scrollbar-none::-webkit-scrollbar {
   display: none;
+}
+
+/* Reduced motion: kill marquees / shimmers */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track,
+  .shimmer-text-anim {
+    animation: none !important;
+  }
+}
+
+/* Logo cloud — strip color, force white monochrome */
+.logo-mono {
+  filter: brightness(0) invert(1);
+  opacity: 0.85;
+  transition: opacity 200ms ease;
+}
+.logo-mono:hover {
+  opacity: 1;
 }

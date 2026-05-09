@@ -3,9 +3,8 @@
 import { useEffect, useState } from "react";
 
 /**
- * Reads the Razorpay redirect query params (razorpay_payment_id,
- * razorpay_payment_link_id, etc.) on the client so the page can stay
- * fully statically prerendered.
+ * Reads the Razorpay redirect query params on the client so the page
+ * stays fully statically prerendered.
  */
 export function ReceiptId() {
   const [paymentId, setPaymentId] = useState<string | null>(null);
@@ -23,15 +22,20 @@ export function ReceiptId() {
   if (!paymentId) return null;
 
   return (
-    <div className="mt-12 border border-line bg-surface-low p-5">
-      <p className="label-caps mb-2 text-ink-muted">Payment reference</p>
+    <div className="mt-12 rounded-xl border border-border bg-card p-5">
       <p
-        className="font-[family-name:var(--font-space-grotesk)] text-sm text-ink"
+        className="mb-2 font-[family-name:var(--font-jetbrains-mono)] text-[12px] uppercase text-muted-foreground"
+        style={{ letterSpacing: "0.1em" }}
+      >
+        Payment reference
+      </p>
+      <p
+        className="font-[family-name:var(--font-jetbrains-mono)] text-[14px] text-foreground"
         style={{ wordBreak: "break-all" }}
       >
         {paymentId}
       </p>
-      <p className="body-md mt-3 text-ink-tint">
+      <p className="mt-3 text-[14px] text-muted-foreground">
         Save this ID. Quote it if you ever need to contact support.
       </p>
     </div>

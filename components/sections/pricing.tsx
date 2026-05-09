@@ -3,117 +3,99 @@ import { BuyButton } from "@/components/site/buy-button";
 
 const INCLUDED = [
   "76 fillable frameworks across 191 pages",
-  "Every framework sourced and attributed to the original book",
-  "YOUR OUTPUT section on every worksheet — walk away with a usable deliverable",
-  "Works on laptop, iPad, and phone",
-  "Lifetime updates as new frameworks are added",
+  "Every framework sourced to the book it came from",
+  "The red YOUR OUTPUT box at the bottom of every worksheet",
+  "Reads on laptop, iPad, phone",
+  "Free updates as new frameworks are added — first buyers get every future addition",
 ];
-
-const BONUSES: { item: string; value: string | null }[] = [
-  { item: "15 LinkedIn Hook Templates (Notion file)", value: "₹499" },
-  { item: "“Pitch in 7 Minutes” Video Walkthrough", value: "₹999" },
-];
-
-const PAYMENT_METHODS = ["UPI", "GPay", "PhonePe", "Paytm", "Visa", "MC"];
 
 export function Pricing() {
   return (
     <section
       id="pricing"
       aria-label="Pricing"
-      className="border-t border-line"
+      className="bg-background"
     >
-      <div className="mx-auto w-full max-w-[1440px] px-5 py-24 md:px-12 md:py-32">
-        <div className="max-w-[720px]">
-          <p className="label-caps mb-8 text-ink-muted">The Workbook</p>
-          <h2 className="headline-lg text-ink">
-            For people tired of being understood too late.
+      <div className="mx-auto w-full max-w-[1100px] px-5 py-20 md:px-6 md:py-[120px]">
+        <div className="mx-auto max-w-[640px] rounded-3xl border border-border bg-card p-8 md:p-16">
+          <h2
+            className="text-center font-[family-name:var(--font-poppins)] font-extrabold text-foreground"
+            style={{
+              fontSize: "clamp(56px, 9vw, 80px)",
+              lineHeight: 1.0,
+              letterSpacing: "-0.02em",
+            }}
+          >
+            ₹499.
           </h2>
 
-          <blockquote
-            className="mt-10 border-l-2 pl-5 body-lg text-ink"
-            style={{ borderColor: "var(--accent-red)" }}
+          <p
+            className="mt-2 text-center font-[family-name:var(--font-poppins)] font-bold text-foreground"
+            style={{
+              fontSize: "clamp(22px, 3.2vw, 28px)",
+              lineHeight: 1.2,
+            }}
           >
-            76 frameworks. One workbook. Built for the person who has the
-            best idea in the room and keeps losing to the person who tells
-            it better.
-          </blockquote>
+            Less than dinner. Worth more than the next promotion.
+          </p>
 
-          <div className="mt-12 border border-line bg-surface-low p-6 md:p-10">
-            <div className="flex items-baseline gap-4">
-              <span className="font-[family-name:var(--font-inter)] text-base text-ink-muted line-through">
-                ₹999
-              </span>
-              <span className="display-xl text-ink leading-none">₹499</span>
-            </div>
-            <p className="label-caps mt-4 text-ink-muted">
-              Founding price
-              <span aria-hidden="true" className="brand-slash mx-2">/</span>
-              While this version is live
+          <p
+            className="mt-12 text-center font-[family-name:var(--font-jetbrains-mono)] text-[12px] font-medium uppercase"
+            style={{
+              color: "var(--accent)",
+              letterSpacing: "0.1em",
+            }}
+          >
+            What you get
+          </p>
+
+          <ul className="mx-auto mt-6 max-w-[480px] space-y-3">
+            {INCLUDED.map((item) => (
+              <li key={item} className="flex items-start gap-3">
+                <Check
+                  aria-hidden="true"
+                  className="mt-[5px] h-4 w-4 shrink-0"
+                  strokeWidth={2.5}
+                  style={{ color: "var(--accent)" }}
+                />
+                <span className="text-[16px] leading-[1.6] text-foreground">
+                  {item}
+                </span>
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-12 flex items-baseline justify-center gap-4">
+            <span
+              className="text-[24px] text-muted-foreground line-through"
+              aria-label="Original price ₹999"
+            >
+              ₹999
+            </span>
+            <span
+              className="font-[family-name:var(--font-poppins)] font-bold text-foreground"
+              style={{ fontSize: "32px" }}
+            >
+              ₹499
+            </span>
+          </div>
+
+          <p className="mt-2 text-center text-[14px] italic text-muted-foreground">
+            founding price. Goes up as more frameworks ship.
+          </p>
+
+          <div className="mt-8 flex flex-col items-center">
+            <BuyButton
+              variant="primary"
+              size="lg"
+              className="w-full md:w-[320px]"
+            >
+              Get the Workbook — ₹499
+            </BuyButton>
+            <p className="mt-4 text-center text-[13px] text-muted-foreground">
+              Instant download · Razorpay secure · UPI, GPay, PhonePe, Paytm,
+              Visa, Mastercard
             </p>
-
-            <p className="label-caps mt-10 text-ink-muted">What&apos;s included</p>
-            <ul className="mt-5 space-y-4 border-t border-line pt-5">
-              {INCLUDED.map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <Check
-                    className="mt-[5px] h-4 w-4 shrink-0 text-ink"
-                    strokeWidth={2.25}
-                    aria-hidden="true"
-                  />
-                  <span className="body-md text-ink">{item}</span>
-                </li>
-              ))}
-            </ul>
-
-            <p className="label-caps mt-10 text-ink-muted">Bonuses</p>
-            <ul className="mt-5 space-y-4 border-t border-line pt-5">
-              {BONUSES.map((b) => (
-                <li
-                  key={b.item}
-                  className="flex items-start justify-between gap-4"
-                >
-                  <span className="flex items-start gap-3">
-                    <Check
-                      className="mt-[5px] h-4 w-4 shrink-0 text-ink"
-                      strokeWidth={2.25}
-                      aria-hidden="true"
-                    />
-                    <span className="body-md text-ink">{b.item}</span>
-                  </span>
-                  {b.value && (
-                    <span className="label-caps shrink-0 text-ink-muted">
-                      worth {b.value}
-                    </span>
-                  )}
-                </li>
-              ))}
-            </ul>
-
-            <div className="mt-10 border-t border-line pt-8">
-              <BuyButton className="w-full">Get the Workbook — ₹499</BuyButton>
-              <p className="label-caps mt-5 text-center text-ink-muted">
-                Instant download
-                <span aria-hidden="true" className="brand-slash mx-2">/</span>
-                Razorpay Secure
-                <span aria-hidden="true" className="brand-slash mx-2">/</span>
-                UPI, Cards, Net Banking
-              </p>
-
-              <ul
-                aria-label="Payment methods"
-                className="mt-6 flex flex-wrap items-center justify-center gap-2"
-              >
-                {PAYMENT_METHODS.map((m) => (
-                  <li
-                    key={m}
-                    className="label-caps border border-line px-3 py-2 text-ink-muted"
-                  >
-                    {m}
-                  </li>
-                ))}
-              </ul>
-            </div>
           </div>
         </div>
       </div>
