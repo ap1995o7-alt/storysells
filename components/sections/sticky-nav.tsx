@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { BrandLogo } from "@/components/site/brand-logo";
-import { scrollToPricing } from "@/components/site/buy-button";
+import { handleBuy } from "@/components/site/buy-button";
 
 export function StickyNav() {
   const pathname = usePathname();
@@ -37,7 +37,7 @@ export function StickyNav() {
 
         <button
           type="button"
-          onClick={scrollToPricing}
+          onClick={handleBuy}
           aria-label="Get the workbook for ₹499"
           className="inline-flex items-center justify-center gap-2 rounded-lg bg-accent px-3 py-2 font-[family-name:var(--font-poppins)] text-[14px] font-bold text-accent-foreground transition-all hover:brightness-110 md:px-4"
         >

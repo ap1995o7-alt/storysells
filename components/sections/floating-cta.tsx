@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { scrollToPricing } from "@/components/site/buy-button";
+import { handleBuy } from "@/components/site/buy-button";
 
 /**
  * Persistent CTA visible from Section 2 onwards.
@@ -52,7 +52,7 @@ export function FloatingCTA() {
       {/* Desktop pill */}
       <button
         type="button"
-        onClick={scrollToPricing}
+        onClick={handleBuy}
         aria-label="Get the workbook for ₹499"
         tabIndex={visible ? 0 : -1}
         className={`fixed bottom-6 right-6 z-40 hidden items-center justify-center gap-2 rounded-full bg-accent px-6 py-4 font-[family-name:var(--font-poppins)] text-[16px] font-bold text-accent-foreground transition-all md:inline-flex ${
@@ -68,7 +68,7 @@ export function FloatingCTA() {
       {/* Mobile bottom bar */}
       <button
         type="button"
-        onClick={scrollToPricing}
+        onClick={handleBuy}
         aria-label="Get the workbook for ₹499"
         tabIndex={visible ? 0 : -1}
         className={`fixed inset-x-4 bottom-3 z-40 flex h-14 items-center justify-center rounded-2xl bg-accent font-[family-name:var(--font-poppins)] text-[16px] font-bold text-accent-foreground transition-all md:hidden ${

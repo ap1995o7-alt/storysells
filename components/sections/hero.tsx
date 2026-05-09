@@ -1,6 +1,7 @@
 "use client";
 
 import ShimmerText from "@/components/ui/shimmer-text";
+import { handleBuy } from "@/components/site/buy-button";
 
 /**
  * Hero — atmospheric red-glow background, frosted "New" pill,
@@ -112,22 +113,18 @@ export function Hero() {
 
         {/* Single CTA */}
         <div className="mt-10 flex flex-col items-center gap-3">
-          <a
-            href="#pricing"
-            onClick={(e) => {
-              e.preventDefault();
-              document
-                .querySelector("#pricing")
-                ?.scrollIntoView({ behavior: "smooth" });
-            }}
-            className="rounded-xl px-10 py-4 font-[family-name:var(--font-poppins)] text-base font-bold text-white transition-all hover:brightness-110"
+          <button
+            type="button"
+            onClick={handleBuy}
+            aria-label="Get the workbook for ₹499"
+            className="rounded-xl px-10 py-4 font-[family-name:var(--font-poppins)] text-base font-bold text-white transition-all hover:brightness-110 active:translate-y-px"
             style={{
               backgroundColor: "#E24B4A",
               boxShadow: "0 12px 40px rgba(226,75,74,0.4)",
             }}
           >
             Get the Workbook — ₹499
-          </a>
+          </button>
           <p className="font-[family-name:var(--font-dm-sans)] text-xs text-white/50">
             Instant download · Fillable PDF · Works on laptop, iPad, phone
           </p>

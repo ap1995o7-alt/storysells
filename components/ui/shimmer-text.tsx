@@ -1,61 +1,42 @@
 "use client";
 
-import { motion } from "framer-motion";
 import type { ReactNode, CSSProperties } from "react";
 import { cn } from "@/lib/utils";
 
 type ShimmerTextProps = {
   children: ReactNode;
   className?: string;
+  /** Kept for API compatibility; unused now that the gradient is static. */
   duration?: number;
   delay?: number;
-  /** Pause between repeats (s) */
   repeatDelay?: number;
-  /** Override the wrapping element. Defaults to span. */
-  as?: "span" | "div";
 };
 
 /**
- * Animated shimmer that sweeps a brand-red band through white text.
+ * Static gradient text — white at the edges, brand red through the middle.
  *
- * Gradient: white → red → red → white over 200% width, sliding from
- * positionX 200% to -100% so the red band passes once per cycle.
+ * The animated version was causing layout bugs (inline-block didn't wrap,
+ * animation kept the gradient stuck in pinkish end-state). This static
+ * version keeps the visual treatment but renders as a normal inline span
+ * that wraps cleanly across lines.
  */
-export function ShimmerText({
-  children,
-  className,
-  duration = 2.5,
-  delay = 1.0,
-  repeatDelay = 3,
-}: ShimmerTextProps) {
+export function ShimmerText({ children, className }: ShimmerTextProps) {
   const style: CSSProperties = {
-    WebkitTextFillColor: "transparent",
     background:
-      "linear-gradient(to right, #FFFFFF 0%, rgba(226,75,74,0.85) 40%, rgba(226,75,74,0.85) 60%, #FFFFFF 100%)",
+      "linear-gradient(to right, #FFFFFF 0%, rgba(226, 75, 74, 0.85) 50%, #FFFFFF 100%)",
     WebkitBackgroundClip: "text",
     backgroundClip: "text",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "200% 100%",
-    /* Avoid descender clipping when the background-clip is on text */
-    paddingBottom: "0.06em",
+    WebkitTextFillColor: "transparent",
+    color: "transparent",
+    /* Allow wrapping — no inline-block trap */
+    boxDecorationBreak: "clone",
+    WebkitBoxDecorationBreak: "clone",
   };
 
   return (
-    <motion.span
-      className={cn("inline-block shimmer-text-anim", className)}
-      style={style}
-      initial={{ backgroundPositionX: "200%" }}
-      animate={{ backgroundPositionX: ["200%", "-100%"] }}
-      transition={{
-        duration,
-        delay,
-        repeat: Infinity,
-        repeatDelay,
-        ease: "linear",
-      }}
-    >
+    <span className={cn(className)} style={style}>
       {children}
-    </motion.span>
+    </span>
   );
 }
 
