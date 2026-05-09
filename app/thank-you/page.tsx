@@ -85,21 +85,18 @@ export default function ThankYouPage() {
             <p className="mt-2 font-[family-name:var(--font-poppins)] text-[24px] font-bold text-foreground">
               Story Sells — 76 Frameworks, 191 Pages
             </p>
-            {/*
-              TODO: Replace `#` below with the actual signed download URL or
-              a path to the PDF in /public (e.g. "/workbook/story-sells.pdf").
-            */}
             <a
-              href="#"
-              download
+              href="/story-sells-workbook.pdf"
+              download="Story-Sells-Workbook.pdf"
               className="mt-8 inline-flex items-center justify-center gap-2 rounded-xl bg-accent px-6 py-4 font-[family-name:var(--font-poppins)] text-[16px] font-bold text-accent-foreground transition-all hover:brightness-110"
               aria-label="Download Story Sells workbook"
             >
               Download Workbook (PDF)
             </a>
             <p className="mt-4 text-[14px] text-muted-foreground">
-              Save a copy locally. You can fill it in directly inside any PDF
-              reader.
+              Open in Adobe Acrobat Reader on desktop, or in the Adobe Acrobat
+              app on mobile, so your answers save. Browsers and most default
+              PDF viewers won&apos;t save form data.
             </p>
             <p className="mt-6 border-t border-border pt-5 text-[14px] text-muted-foreground">
               Trouble downloading? Email{" "}
