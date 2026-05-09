@@ -3,40 +3,57 @@
 import ShimmerText from "@/components/ui/shimmer-text";
 
 /**
- * Hero — full-bleed silent video background, frosted "New" pill,
- * centered headline with red shimmer sweep, single CTA.
+ * Hero — atmospheric red-glow background, frosted "New" pill,
+ * centered headline with shimmer, single CTA.
  *
- * The video is a Pexels stock placeholder; replace with brand
- * footage once available. /public/hero-poster.jpg covers the
- * buffering window.
+ * Background is pure CSS:
+ *   - Layer 0: Off-center radial glow in brand red
+ *   - Layer 1: Volumetric light beams (vertical striations inside
+ *              the glow, masked to the glow's footprint)
+ *   - Layer 2: Soft edge vignette to deepen the corners
+ *
+ * No video, no images. Loads instantly even on slow 4G.
  */
-const VIDEO_URL =
-  "https://videos.pexels.com/video-files/3209828/3209828-uhd_3840_2160_25fps.mp4";
-
 export function Hero() {
+  // Defining the glow shape once so the mask matches exactly.
+  const glowShape =
+    "ellipse 55% 100% at 22% 50%";
+
   return (
     <section
       id="top"
-      className="relative w-full min-h-screen overflow-hidden"
+      className="relative w-full min-h-screen overflow-hidden bg-background"
     >
-      {/* Video background */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload="auto"
-        className="absolute inset-0 z-0 h-full w-full object-cover"
-        poster="/hero-poster.jpg"
-        aria-hidden="true"
-      >
-        <source src={VIDEO_URL} type="video/mp4" />
-      </video>
-
-      {/* Dark overlay — keeps white text legible over any video */}
+      {/* Layer 0 — atmospheric red glow column on the left */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 z-[5] bg-gradient-to-b from-black/70 via-black/60 to-black/85"
+        className="absolute inset-0 z-0"
+        style={{
+          background: `radial-gradient(${glowShape}, rgba(226, 75, 74, 0.40) 0%, rgba(226, 75, 74, 0.12) 35%, transparent 75%)`,
+        }}
+      />
+
+      {/* Layer 1 — volumetric light beams (vertical striations
+          inside the glow only, mimicking dust caught in a beam) */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 z-[1]"
+        style={{
+          backgroundImage:
+            "repeating-linear-gradient(88deg, transparent 0px, transparent 14px, rgba(0,0,0,0.22) 14px, rgba(0,0,0,0.22) 16px)",
+          maskImage: `radial-gradient(${glowShape}, black 0%, black 30%, transparent 70%)`,
+          WebkitMaskImage: `radial-gradient(${glowShape}, black 0%, black 30%, transparent 70%)`,
+        }}
+      />
+
+      {/* Layer 2 — soft edge vignette */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-[2]"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, transparent 30%, rgba(15,14,13,0.7) 100%)",
+        }}
       />
 
       {/* Centered content */}
@@ -120,5 +137,4 @@ export function Hero() {
   );
 }
 
-/** Alias the component to the spec's name. */
 export const StorySellsHero = Hero;
