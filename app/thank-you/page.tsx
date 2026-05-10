@@ -86,7 +86,7 @@ export default function ThankYouPage() {
               Story Sells — 76 Frameworks, 191 Pages
             </p>
             <a
-              href="/story-sells-workbook.pdf"
+              href="https://bantmwbrzszcyn6a.public.blob.vercel-storage.com/story_sells_complete_v2.pdf"
               download="Story-Sells-Workbook.pdf"
               className="mt-8 inline-flex items-center justify-center gap-2 rounded-xl bg-accent px-6 py-4 font-[family-name:var(--font-poppins)] text-[16px] font-bold text-accent-foreground transition-all hover:brightness-110"
               aria-label="Download Story Sells workbook"
