@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import crypto from "node:crypto";
 
 const META_API_VERSION = "v22.0";
 const PRICE_INR = 499.0;
@@ -10,7 +11,17 @@ type IncomingEvent = {
   event_source_url: string;
   fbp?: string | null;
   fbc?: string | null;
+  external_id?: string | null;
 };
+
+/** Meta requires SHA-256 (hex, lowercase) for `external_id`. Trim + lowercase
+ * before hashing per their normalization rules. */
+function sha256(input: string): string {
+  return crypto
+    .createHash("sha256")
+    .update(input.trim().toLowerCase())
+    .digest("hex");
+}
 
 export async function POST(req: NextRequest) {
   const token = process.env.META_CAPI_ACCESS_TOKEN;
@@ -56,6 +67,7 @@ export async function POST(req: NextRequest) {
       client_user_agent: userAgent,
       fbp: body.fbp ?? undefined,
       fbc: body.fbc ?? undefined,
+      external_id: body.external_id ? sha256(body.external_id) : undefined,
     },
   };
 

@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { trackPurchase } from "@/lib/analytics";
+import { captureFbclid } from "@/lib/fbclid";
 
 function getCookie(name: string): string | null {
   if (typeof document === "undefined") return null;
@@ -15,11 +16,17 @@ function getCookie(name: string): string | null {
  * Fires the Meta `Purchase` event on both the browser Pixel and CAPI
  * (server-side) — sharing one `event_id` so Meta deduplicates.
  *
+ * Sends `external_id` = razorpay_payment_id (server-side hashes it).
+ * This anchors the conversion to a stable Meta-trackable ID, lifting
+ * Event Match Quality.
+ *
  * Gated by a real Razorpay `payment_id` in the URL so test visits or
  * direct links to /thank-you don't pollute conversion data.
  */
 export function PurchaseTracker() {
   useEffect(() => {
+    captureFbclid();
+
     const params = new URLSearchParams(window.location.search);
     const paymentId =
       params.get("razorpay_payment_id") ??
@@ -43,6 +50,7 @@ export function PurchaseTracker() {
         event_source_url: window.location.href,
         fbp: getCookie("_fbp"),
         fbc: getCookie("_fbc"),
+        external_id: paymentId,
       }),
       keepalive: true,
     }).catch(() => {

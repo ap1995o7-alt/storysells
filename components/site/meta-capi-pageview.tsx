@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { trackPageView } from "@/lib/analytics";
+import { captureFbclid } from "@/lib/fbclid";
 
 function getCookie(name: string): string | null {
   if (typeof document === "undefined") return null;
@@ -23,6 +24,9 @@ function getCookie(name: string): string | null {
  */
 export function MetaCapiPageView() {
   useEffect(() => {
+    // Promote ?fbclid=... to the _fbc cookie before any event reads it.
+    captureFbclid();
+
     let cancelled = false;
 
     const send = (eventId: string) => {
