@@ -7,6 +7,7 @@ import {
   JetBrains_Mono,
 } from "next/font/google";
 import "./globals.css";
+import { MetaCapiPageView } from "@/components/site/meta-capi-pageview";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -98,8 +99,10 @@ export default function RootLayout({
           `}
         </Script>
 
-        {/* Meta Pixel base code. PageView fires automatically on init.
-            InitiateCheckout and Purchase events are fired manually from
+        {/* Meta Pixel base code. PageView is fired manually from
+            <MetaCapiPageView /> so it can share an event_id with the
+            server-side CAPI event (Meta deduplicates by event_id).
+            InitiateCheckout and Purchase fire manually from
             buy-button.tsx and the /thank-you page. */}
         <Script id="meta-pixel" strategy="afterInteractive">
           {`
@@ -112,9 +115,9 @@ export default function RootLayout({
             s.parentNode.insertBefore(t,s)}(window,document,'script',
             'https://connect.facebook.net/en_US/fbevents.js');
             fbq('init', '${META_PIXEL_ID}');
-            fbq('track', 'PageView');
           `}
         </Script>
+        <MetaCapiPageView />
         <noscript>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img

@@ -6,15 +6,43 @@ import { trackInitiateCheckout } from "@/lib/analytics";
 
 const RAZORPAY_PAYMENT_PAGE = "https://rzp.io/rzp/StorySells";
 
+function getCookie(name: string): string | null {
+  if (typeof document === "undefined") return null;
+  const match = document.cookie.match(
+    new RegExp("(^|;\\s*)" + name + "=([^;]+)"),
+  );
+  return match ? decodeURIComponent(match[2]) : null;
+}
+
 /**
  * Single source of truth for "Get the Workbook" buttons across the page.
- * Fires Meta Pixel InitiateCheckout, then redirects to Razorpay.
+ * Fires Meta Pixel + CAPI InitiateCheckout (deduped via shared event_id),
+ * then redirects to Razorpay. CAPI uses `keepalive` so the request
+ * survives the navigation.
  */
 export function handleBuy() {
-  if (typeof window !== "undefined") {
-    trackInitiateCheckout();
-    window.location.href = RAZORPAY_PAYMENT_PAGE;
-  }
+  if (typeof window === "undefined") return;
+
+  const eventId = crypto.randomUUID();
+  trackInitiateCheckout(eventId);
+
+  // Fire-and-forget; keepalive lets it survive the redirect.
+  fetch("/api/meta-capi", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      event_name: "InitiateCheckout",
+      event_id: eventId,
+      event_source_url: window.location.href,
+      fbp: getCookie("_fbp"),
+      fbc: getCookie("_fbc"),
+    }),
+    keepalive: true,
+  }).catch(() => {
+    // Best-effort; browser pixel already covered the event.
+  });
+
+  window.location.href = RAZORPAY_PAYMENT_PAGE;
 }
 
 export const handleCheckout = handleBuy;
