@@ -8,6 +8,7 @@ import {
 } from "next/font/google";
 import "./globals.css";
 import { MetaCapiPageView } from "@/components/site/meta-capi-pageview";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -128,6 +129,7 @@ export default function RootLayout({
             alt=""
           />
         </noscript>
+        <SpeedInsights />
       </body>
     </html>
   );
