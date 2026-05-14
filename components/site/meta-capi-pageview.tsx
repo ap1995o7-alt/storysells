@@ -3,14 +3,7 @@
 import { useEffect } from "react";
 import { trackPageView } from "@/lib/analytics";
 import { captureFbclid } from "@/lib/fbclid";
-
-function getCookie(name: string): string | null {
-  if (typeof document === "undefined") return null;
-  const match = document.cookie.match(
-    new RegExp("(^|;\\s*)" + name + "=([^;]+)"),
-  );
-  return match ? decodeURIComponent(match[2]) : null;
-}
+import { getCookieRaw } from "@/lib/cookies";
 
 /**
  * Fires a deduplicated PageView on every page load — browser Pixel + CAPI
@@ -37,8 +30,8 @@ export function MetaCapiPageView() {
           event_name: "PageView",
           event_id: eventId,
           event_source_url: window.location.href,
-          fbp: getCookie("_fbp"),
-          fbc: getCookie("_fbc"),
+          fbp: getCookieRaw("_fbp"),
+          fbc: getCookieRaw("_fbc"),
         }),
         keepalive: true,
       }).catch(() => {

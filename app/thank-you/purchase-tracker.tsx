@@ -3,14 +3,7 @@
 import { useEffect } from "react";
 import { trackPurchase } from "@/lib/analytics";
 import { captureFbclid } from "@/lib/fbclid";
-
-function getCookie(name: string): string | null {
-  if (typeof document === "undefined") return null;
-  const match = document.cookie.match(
-    new RegExp("(^|;\\s*)" + name + "=([^;]+)"),
-  );
-  return match ? decodeURIComponent(match[2]) : null;
-}
+import { getCookieRaw } from "@/lib/cookies";
 
 /**
  * Fires the Meta `Purchase` event on both the browser Pixel and CAPI
@@ -48,8 +41,8 @@ export function PurchaseTracker() {
         event_name: "Purchase",
         event_id: eventId,
         event_source_url: window.location.href,
-        fbp: getCookie("_fbp"),
-        fbc: getCookie("_fbc"),
+        fbp: getCookieRaw("_fbp"),
+        fbc: getCookieRaw("_fbc"),
         external_id: paymentId,
       }),
       keepalive: true,

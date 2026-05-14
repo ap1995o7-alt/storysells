@@ -3,16 +3,9 @@
 import { cn } from "@/lib/utils";
 import type { ReactNode, MouseEventHandler } from "react";
 import { trackInitiateCheckout } from "@/lib/analytics";
+import { getCookieRaw } from "@/lib/cookies";
 
 const RAZORPAY_PAYMENT_PAGE = "https://rzp.io/rzp/StorySells";
-
-function getCookie(name: string): string | null {
-  if (typeof document === "undefined") return null;
-  const match = document.cookie.match(
-    new RegExp("(^|;\\s*)" + name + "=([^;]+)"),
-  );
-  return match ? decodeURIComponent(match[2]) : null;
-}
 
 /**
  * Single source of truth for "Get the Workbook" buttons across the page.
@@ -34,8 +27,8 @@ export function handleBuy() {
       event_name: "InitiateCheckout",
       event_id: eventId,
       event_source_url: window.location.href,
-      fbp: getCookie("_fbp"),
-      fbc: getCookie("_fbc"),
+      fbp: getCookieRaw("_fbp"),
+      fbc: getCookieRaw("_fbc"),
     }),
     keepalive: true,
   }).catch(() => {
