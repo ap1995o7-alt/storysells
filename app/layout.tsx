@@ -64,6 +64,11 @@ export const metadata: Metadata = {
     images: ["/og-image.jpg"],
   },
   robots: { index: true, follow: true },
+  verification: {
+    other: {
+      "facebook-domain-verification": "1cgzpygk6zhik6g93ghi62pzxt3ovx",
+    },
+  },
 };
 
 export const viewport: Viewport = {
